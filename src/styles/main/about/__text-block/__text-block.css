@@ -1,0 +1,8 @@
+@import url('./__title/__title.css');
+@import url('./__text/__text.css');
+
+.about__text-block {
+    margin-left: 56px;
+    max-width: 600px;
+    padding-top: 51px;
+}

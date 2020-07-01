@@ -1,0 +1,15 @@
+.articles__more-button {
+    border-radius: 80px;
+    background: #FFF;
+    width: 288px;
+    height: 64px;
+    border: none;
+    margin: 64px auto 0px;
+    display: block;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1A1B22;
+}

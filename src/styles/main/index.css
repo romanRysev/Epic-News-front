@@ -1,0 +1,11 @@
+@import url('./top-section/top-section.css');
+@import url('../../vendor/fonts.css');
+@import url('./search-block/search-block.css');
+@import url('./footer/footer.css');
+@import url('./articles/articles.css');
+@import url('./about/about.css');
+@import url('./popup/popup.css');
+
+.main {
+    margin: 0;
+}

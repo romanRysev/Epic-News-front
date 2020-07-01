@@ -2,11 +2,122 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Webpack</title>
+    <title>Epic News</title>
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
 </head>
-<body>
-    <h1>Hello</h1>
+<body class="main">
+    <section class="top-section">
+        <div class="header">
+            <p class="header__title">Epic News</p>
+            <div class="header__right-side">
+                <nav class="menu">
+                    <a href="#" class="menu__link">Главная</a>
+                    <a href="#" class="menu__link">Сохраненные статьи</a>
+                </nav>
+                <button class="header__autorization-button">Пользователь<img class="header__autorization-button-icon" src="<%=require('./images/logout.svg').default%>" alt="logout"></button>
+            </div>
+        </div>
+        <div class="search-block">
+            <div class="search-block__wrapper">
+                <h1 class="search-block__title">Что в мире творится?</h1>
+                <p class="search-block__subtitle">Находите самые свежие статьина любую тему и сохраняйте в своем личном кабинете.</p>
+                <form class="search-form" action="">
+                    <input type="text" class="search-form__input" placeholder="Введите тему новости">
+                    <button class="search-form__button">Искать</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="articles">
+        <div class="loader">
+            <img src="<%=require('./images/Ellipse.png').default%>" alt="Идет поиск новостей" class="loader__img">
+            <p class="loader__text">Идет поиск новостей...</p>
+        </div>
+        <div class="articles-not-found">
+            <img src="<%=require('./images/not-found_v1.svg').default%>" alt="Ничего не найдено" class="articles-not-found__img">
+            <h2 class="articles-not-found__title">Ничего не найдено</h2>
+            <p class="articles-not-found__text">К сожалению по вашему запросу ничего не найдено.</p>
+        </div>
+        <h2 class="articles__title">Результаты поиска</h2>
+        <div class="articles__container">
+            <div class="article-card">
+                <div class="article-card__image">
+                    <button class="article-card__add-to-collection"></button>
+                </div>
+                <div class="article-card__text-container">
+                    <p class="article-card__date">2 августа, 2019</p>
+                    <h3 class="article-card__title">Национальное достояние – парки</h2>
+                    <p class="article-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                </div>
+                <p class="article-card__source">Лента.ру</p>
+                
+            </div>
+            <div class="article-card">
+                <div class="article-card__image">
+                    <button class="article-card__add-to-collection article-card__add-to-collection_enabled"></button>
+                </div>
+                <div class="article-card__text-container">
+                    <p class="article-card__date">2 августа, 2019</p>
+                    <h3 class="article-card__title">Лесные огоньки: история одной фотографии</h2>
+                    <p class="article-card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+                </div>
+                <p class="article-card__source">Медуза</p>
+            </div>
+            <div class="article-card">
+                <div class="article-card__image">
+                    <button class="article-card__add-to-collection"></button>
+                </div>
+                <div class="article-card__text-container">
+                    <p class="article-card__date">2 августа, 2019</p>
+                    <h3 class="article-card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h2>
+                    <p class="article-card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+                </div>
+                <p class="article-card__source">РИА</p>
+            </div>
+        </div>
+        <button class="articles__more-button">Показать еще</button>
+    </section>
+    <section class="about">
+        <img src="<%=require('./images/image-03.jpg').default%>" alt="Портрет автора" class="about__portrait">
+        <div class="about__text-block">
+            <h2 class="about__title">Об авторе</h2>
+            <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+            <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+        </div>
+    </section>
+    <section class="footer">
+        <p class="copyright">© 2020 Supersite, Powered by News API</p>
+        <nav class="footer__menu">
+            <a href="#" class="footer__menu-link">Главная</a>
+            <a href="#" class="footer__menu-link">Яндекс.Практикум</a>
+            <a href="https://github.com/romanRysev" class="footer__menu-link"><img src="<%=require('./images/git.svg').default%>" alt="Гитхаб" class="footer__menu-image"></a>
+            <a href="#" class="footer__menu-link"><img src="<%=require('./images/FB.svg').default%>" alt="Facebook" class="footer__menu-image"></a>
+        </nav>
+    </section>
+    <div class="popup">
+        <div class="popup__wrapper"></div>
+        <div class="popup__content">
+            <button class="popup__close"><img src="<%=require('./images/close.svg').default%>" alt="закрыть" class="popup__close-img"></button>
+            <div class="signin">
+                <h2 class="signin__title">Вход</h2>
+                <form class="form signin__form" action="">
+                    <input type="text" class="input signin__email-input" placeholder="Введите почту">
+                    <input type="text" class="input signin__password-input" placeholder="Введите пароль">
+                    <button class="signin__button signin__button_disabled">Войти</button>
+                </form>
+            </div>
+            <div class="signup">
+                <h2 class="signup__title">Регистрация</h2>
+                <form class="form signup__form" action="">
+                    <input type="text" class="input signup__email-input" placeholder="Введите почту">
+                    <input type="text" class="input signup__password-input" placeholder="Введите пароль">
+                    <input type="text" class="input signup__name" placeholder="Введите своё имя">
+                    <button class="signup__button signup__button_disabled">Зарегистрироваться</button>
+                </form>
+            </div>
+            или<span class="popup__signin">Зарегистрироваться</span><span class="popup__singnup">Войти</span>
+        </div>
+    </div>
     <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
 </html>

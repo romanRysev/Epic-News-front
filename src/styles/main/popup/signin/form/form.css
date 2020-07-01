@@ -1,0 +1,6 @@
+@import url('./input/input.css');
+
+.form {
+    display: flex;
+    flex-direction: column;
+}

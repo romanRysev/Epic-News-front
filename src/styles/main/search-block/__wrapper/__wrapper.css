@@ -1,0 +1,8 @@
+@import url('./__title/__title.css');
+@import url('./__subtitle/__subtitle.css');
+@import url('./search-form/search-form.css');
+
+.search-block__wrapper {
+    margin: 0 auto;
+    max-width: 608px;
+}

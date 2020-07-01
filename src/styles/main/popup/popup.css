@@ -1,0 +1,13 @@
+@import url('./signin/signin.css');
+@import url('./signup/signup.css');
+@import url('./__close/__close.css');
+@import url('./__content/__content.css');
+@import url('./__wrapper/__wrapper.css');
+
+.popup {
+    display: none;
+}
+
+.popup_is-opened {
+    display: block;
+}

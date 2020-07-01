@@ -1,0 +1,7 @@
+@import url('./__text/__text.css');
+@import url('./__img/__img.css');
+
+.loader {
+    background: #F5F6F7;
+    padding: 80px 0;
+}

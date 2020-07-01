@@ -1,0 +1,9 @@
+@import url('./copyright/copyright.css');
+@import url('./__menu/__menu.css');
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 104px;
+    align-items: center;
+}

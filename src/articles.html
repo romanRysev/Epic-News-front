@@ -1,7 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="News for everyone!">
+    <meta name="author" content="Roman Rysev">
+    <title>Epic News</title>
+    <link rel="icon" href="<%=require('./images/N.png').default%>" type="image/png">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
+</head>
+<body class="main">
 <section class="header">
     <p class="header__title">Epic News</p>
     <nav class="menu">
-        <a href="#" class="menu__link">Главная</a>
+        <a href="./" class="menu__link">Главная</a>
         <a href="#" class="menu__link">Сохраненные статьи</a>
     </nav>
     <button class="header__autorization-button">Пользователь</button>
@@ -69,3 +80,6 @@
         <a href="#" class="footer-menu__link"><img src="#" alt="Facebook" class="footer-menu__image"></a>
     </nav>
 </section>
+<script src="<%= htmlWebpackPlugin.files.js %>"></script>
+</body>
+</html>

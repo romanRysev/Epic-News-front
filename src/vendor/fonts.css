@@ -20,6 +20,13 @@
 }
 
 @font-face {
+  font-family: 'Roboto';
+  font-style:  normal;
+  font-weight: 900;
+  src: url("./fonts/roboto-black.woff") format("woff");
+}
+
+@font-face {
     font-family: 'Roboto Slab';
     font-style:  normal;
     font-weight: 400;

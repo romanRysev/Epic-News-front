@@ -3,6 +3,8 @@
 @import url('./__close/__close.css');
 @import url('./__content/__content.css');
 @import url('./__wrapper/__wrapper.css');
+@import url('./__switch/__switch.css');
+@import url('./__title/__title.css');
 
 .popup {
     display: none;

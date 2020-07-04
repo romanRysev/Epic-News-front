@@ -6,80 +6,93 @@
     <meta name="author" content="Roman Rysev">
     <title>Epic News</title>
     <link rel="icon" href="<%=require('./images/N.png').default%>" type="image/png">
-    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[1]%>">
 </head>
 <body class="main">
-<section class="header">
+<section class="header header_theme_white">
     <p class="header__title">Epic News</p>
-    <nav class="menu">
-        <a href="./" class="menu__link">Главная</a>
-        <a href="#" class="menu__link">Сохраненные статьи</a>
-    </nav>
-    <button class="header__autorization-button">Пользователь</button>
+    <div class="header__right-side">
+        <nav class="menu">
+            <a href="./" class="menu__link menu__link_theme_white">Главная</a>
+            <a href="./articles.html" class="menu__link menu__link_theme_white menu__link_theme_white-active">Сохраненные статьи</a>
+        </nav>
+        <button class="header__autorization-button_theme_white header__autorization-button">Пользователь<img class="header__autorization-button-icon" src="<%=require('./images/logout_black.svg').default%>" alt="logout"></button>
+    </div>
 </section>
-<section class="top">
-    <p class="top__text">Сохраненные статьи</p>
-    <h2 class="top__articles-counter">Грета, у вас 5 сохранённых статей</h2>
-    <p class="top__keywords">По ключевым словам: <span class="top__keyword">Природа,</span> <span class="top__keyword">Тайга</span> и <span class="top__keyword">2 другим</span></p>
+<section class="saved-top">
+    <p class="saved-top__text">Сохраненные статьи</p>
+    <h2 class="saved-top__articles-counter">Грета, у вас 5 сохранённых статей</h2>
+    <p class="saved-top__keywords">По ключевым словам: <span class="saved-top__keyword">Природа,</span> <span class="saved-top__keyword">Тайга</span> и <span class="saved-top__keyword">2 другим</span></p>
 </section>
 <section class="articles">
-    <div class="articles__container">
-        <div class="article-card">
-            <div class="article-card__image">
-                <button class="article-card__add-to-collection"></button>
-            </div>
-            <p class="article-card__date">2 августа, 2019</p>
-            <h3 class="article-card__title">Национальное достояние – парки</h2>
-            <p class="article-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-            <p class="article-card__source">Лента.ру</p>
+  <div class="articles__container">
+      <div class="article-card">
+          <div class="article-card__image">
+              <button class="article-card__add-to-collection"></button>
+          </div>
+          <div class="article-card__text-container">
+              <p class="article-card__date">2 августа, 2019</p>
+              <h3 class="article-card__title">Национальное достояние – парки</h2>
+              <p class="article-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+          </div>
+          <p class="article-card__source">Лента.ру</p>
+
+      </div>
+      <div class="article-card">
+          <div class="article-card__image">
+              <button class="article-card__add-to-collection article-card__add-to-collection_enabled"></button>
+          </div>
+          <div class="article-card__text-container">
+              <p class="article-card__date">2 августа, 2019</p>
+              <h3 class="article-card__title">Лесные огоньки: история одной фотографии</h2>
+              <p class="article-card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+          </div>
+          <p class="article-card__source">Медуза</p>
+      </div>
+      <div class="article-card">
+          <div class="article-card__image">
+              <button class="article-card__add-to-collection"></button>
+          </div>
+          <div class="article-card__text-container">
+              <p class="article-card__date">2 августа, 2019</p>
+              <h3 class="article-card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h2>
+              <p class="article-card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+          </div>
+          <p class="article-card__source">РИА</p>
+      </div>
+      <div class="article-card">
+        <div class="article-card__image">
+            <button class="article-card__add-to-collection"></button>
         </div>
-        <div class="article-card">
-            <div class="article-card__image">
-                <button class="article-card__add-to-collection"></button>
-            </div>
-            <p class="article-card__date">2 августа, 2019</p>
-            <h3 class="article-card__title">Лесные огоньки: история одной фотографии</h2>
-            <p class="article-card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-            <p class="article-card__source">Медуза</p>
-        </div>
-        <div class="article-card">
-            <div class="article-card__image">
-                <button class="article-card__add-to-collection"></button>
-            </div>
+        <div class="article-card__text-container">
             <p class="article-card__date">2 августа, 2019</p>
             <h3 class="article-card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h2>
             <p class="article-card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-            <p class="article-card__source">РИА</p>
         </div>
-        <div class="article-card">
-            <div class="article-card__image">
-                <button class="article-card__add-to-collection"></button>
-            </div>
-            <p class="article-card__date">2 августа, 2019</p>
-            <h3 class="article-card__title">Национальное достояние – парки</h2>
-            <p class="article-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-            <p class="article-card__source">Лента.ру</p>
-        </div>
-        <div class="article-card">
-            <div class="article-card__image">
-                <button class="article-card__add-to-collection"></button>
-            </div>
-            <p class="article-card__date">2 августа, 2019</p>
-            <h3 class="article-card__title">Лесные огоньки: история одной фотографии</h2>
-            <p class="article-card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-            <p class="article-card__source">Медуза</p>
-        </div>
+        <p class="article-card__source">РИА</p>
     </div>
+    <div class="article-card">
+      <div class="article-card__image">
+          <button class="article-card__add-to-collection"></button>
+      </div>
+      <div class="article-card__text-container">
+          <p class="article-card__date">2 августа, 2019</p>
+          <h3 class="article-card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h2>
+          <p class="article-card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+      </div>
+      <p class="article-card__source">РИА</p>
+  </div>
+  </div>
 </section>
 <section class="footer">
-    <p class="copyright">© 2020 Supersite, Powered by News API</p>
-    <nav class="footer-menu">
-        <a href="#" class="footer-menu__link">Главная</a>
-        <a href="#" class="footer-menu__link">Яндекс.Практикум</a>
-        <a href="#" class="footer-menu__link"><img src="#" alt="Гитхаб" class="footer-menu__image"></a>
-        <a href="#" class="footer-menu__link"><img src="#" alt="Facebook" class="footer-menu__image"></a>
-    </nav>
+  <p class="copyright">© 2020 Supersite, Powered by News API</p>
+  <nav class="footer__menu">
+      <a href="#" class="footer__menu-link">Главная</a>
+      <a href="#" class="footer__menu-link">Яндекс.Практикум</a>
+      <a href="https://github.com/romanRysev" class="footer__menu-link"><img src="<%=require('./images/git.svg').default%>" alt="Гитхаб" class="footer__menu-image"></a>
+      <a href="#" class="footer__menu-link"><img src="<%=require('./images/FB.svg').default%>" alt="Facebook" class="footer__menu-image"></a>
+  </nav>
 </section>
-<script src="<%= htmlWebpackPlugin.files.js %>"></script>
+<script src="<%= htmlWebpackPlugin.files.js[1] %>"></script>
 </body>
 </html>

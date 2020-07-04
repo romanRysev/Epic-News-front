@@ -1,0 +1,15 @@
+@import url('./__right-side/__right-side.css');
+@import url('./__title/__title.css');
+
+.header {
+    display: flex;
+    height: 80px;
+    padding: 0 104px;
+    justify-content: space-between;
+    box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+    align-items: center;
+}
+
+.header_theme_white {
+  box-shadow: inset 0px -1px 0px #D1D2D6;
+}

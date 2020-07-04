@@ -1,0 +1,10 @@
+@import url('./__switch-color-text/__switch-color-text.css');
+
+.popup__switch {
+  margin-top: 16px;
+  font-family: Inter;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}

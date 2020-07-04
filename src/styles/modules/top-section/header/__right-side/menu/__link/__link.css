@@ -1,0 +1,30 @@
+.menu__link {
+    margin-right: 32px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    height: 80px;
+    box-sizing: border-box;
+}
+
+.menu__link:hover {
+  cursor: url('../../../../../../../images/Pointer.svg'), pointer;
+}
+
+.menu__link-active {
+  border-bottom: #fff 3px solid;
+}
+
+.menu__link_theme_white {
+  color: #1A1B22;
+}
+
+.menu__link_theme_white-active {
+  border-bottom: black 3px solid;
+}

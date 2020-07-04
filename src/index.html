@@ -6,7 +6,7 @@
     <meta name="author" content="Roman Rysev">
     <title>Epic News</title>
     <link rel="icon" href="<%=require('./images/N.png').default%>" type="image/png">
-    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[0] %>">
 </head>
 <body class="main">
     <section class="top-section">
@@ -14,8 +14,8 @@
             <p class="header__title">Epic News</p>
             <div class="header__right-side">
                 <nav class="menu">
-                    <a href="./" class="menu__link">Главная</a>
-                    <a href="./articles" class="menu__link">Сохраненные статьи</a>
+                    <a href="./" class="menu__link menu__link-active">Главная</a>
+                    <a href="./articles.html" class="menu__link">Сохраненные статьи</a>
                 </nav>
                 <button class="header__autorization-button">Пользователь<img class="header__autorization-button-icon" src="<%=require('./images/logout.svg').default%>" alt="logout"></button>
             </div>
@@ -45,7 +45,8 @@
         <div class="articles__container">
             <div class="article-card">
                 <div class="article-card__image">
-                    <button class="article-card__add-to-collection"></button>
+                  <div class="article-card__tip">Войдите, чтобы сохранять статьи</div>
+                  <button class="article-card__add-to-collection"></button>
                 </div>
                 <div class="article-card__text-container">
                     <p class="article-card__date">2 августа, 2019</p>
@@ -127,16 +128,16 @@
                   <input type="text" class="form__input signup__name" placeholder="Введите своё имя">
                   <p class="signup__name-error form__error"></p>
                   <p class="signup__form-error form__error"></p>
-                  <button class="button form__button signup__button signup__button_disabled">Зарегистрироваться</button>
+                  <button class="button form__button signup__button button_disabled" disabled>Зарегистрироваться</button>
               </form>
           </div>
           <div class="popup__switch">
             или
-              <span class="popup__switch-color-text"> Зарегистрироваться</span>
-              <span class="popup__switch-color-text"> Войти</span>
+              <span class="popup__switch-color-text "> Зарегистрироваться</span>
+              <span class="popup__switch-color-text "> Войти</span>
           </div>
       </div>
     </div>
-    <script src="<%= htmlWebpackPlugin.files.js %>"></script>
+    <script src="<%= htmlWebpackPlugin.files.js[0] %>"></script>
 </body>
 </html>

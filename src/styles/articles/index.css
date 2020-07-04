@@ -1,0 +1,9 @@
+@import url('../modules/top-section/header/header.css');
+@import url('../../vendor/fonts.css');
+@import url('../modules/footer/footer.css');
+@import url('../modules/articles/articles.css');
+@import url('../modules/saved-top/saved-top.css');
+
+.main {
+  margin: 0 0 0 0;
+}

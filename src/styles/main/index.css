@@ -1,11 +1,11 @@
-@import url('./ui/button.css');
-@import url('./top-section/top-section.css');
+@import url('../modules/ui/button.css');
+@import url('../modules/top-section/top-section.css');
 @import url('../../vendor/fonts.css');
-@import url('./search-block/search-block.css');
-@import url('./footer/footer.css');
-@import url('./articles/articles.css');
-@import url('./about/about.css');
-@import url('./popup/popup.css');
+@import url('../modules/search-block/search-block.css');
+@import url('../modules/footer/footer.css');
+@import url('../modules/articles/articles.css');
+@import url('../modules/about/about.css');
+@import url('../modules/popup/popup.css');
 
 
 .main {

@@ -1,7 +1,0 @@
-@import url('./__portrait/__portrait.css');
-@import url('./__text-block/__text-block.css');
-
-.about {
-    display: flex;
-    padding: 80px 104px;
-}

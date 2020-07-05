@@ -1,6 +1,0 @@
-@import url('./menu/menu.css');
-@import url('./__autorization-button/__autorization-button.css');
-
-.header__right-side {
-    display: flex;
-}

@@ -1,0 +1,21 @@
+.article-card__delete {
+  background-image: url('../../../../../../../images/trash.svg');
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
+  position: absolute;
+  right: 24px;
+}
+
+.article-card__delete:hover {
+background-image: url('../../../../../../../images/trash_active.svg');
+cursor: url('../../../../../../../images/Pointer.svg'), pointer;
+}
+
+.article-card__delete:focus {
+outline: none;
+}

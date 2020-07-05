@@ -12,8 +12,32 @@
   line-height: 24px;
   color: #FFF;
 }
+
+.button:focus {
+  outline: none;
+
+}
+
+.button:hover {
+  cursor: url(./images/Pointer.svg), pointer;
+  background: #347EFF;
+}
+
+button:active {
+  background: #2A65CC;
+}
+
+.button_disabled {
+  background: #E6E8EB;
+  color: #B6BCBF;
+  box-shadow: none;
+}
+
+.button_disabled:hover {
+  cursor: auto;
+}
 .menu__link {
-    padding-right: 32px;
+    margin-right: 32px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -21,6 +45,26 @@
     line-height: 24px;
     color: #fff;
     text-decoration: none;
+    align-items: center;
+    display: flex;
+    height: 80px;
+    box-sizing: border-box;
+}
+
+.menu__link:hover {
+  cursor: url(./images/Pointer.svg), pointer;
+}
+
+.menu__link-active {
+  border-bottom: #fff 3px solid;
+}
+
+.menu__link_theme_white {
+  color: #1A1B22;
+}
+
+.menu__link_theme_white-active {
+  border-bottom: black 3px solid;
 }
 .menu {
     display: flex;
@@ -43,8 +87,25 @@
     display: flex;
     align-items: center;
 }
+
+.header__autorization-button:hover {
+  cursor: url(./images/Pointer.svg), pointer;
+}
+
+.header__autorization-button:focus {
+  outline: none;
+}
+
+.header__autorization-button_theme_white {
+  border: 1px solid #D1D2D6;;
+  box-sizing: border-box;
+  border-radius: 100px;
+  background-color: transparent;
+  color: #1A1B22;
+}
 .header__right-side {
     display: flex;
+    align-items: center;
 }
 .header__title {
     font-family: 'Roboto Slab';
@@ -58,7 +119,11 @@
     padding: 0 104px;
     justify-content: space-between;
     box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
-        align-items: center;
+    align-items: center;
+}
+
+.header_theme_white {
+  box-shadow: inset 0px -1px 0px #D1D2D6;
 }
 .top-section {
     background-image: url(./images/top-background.jpg);
@@ -122,19 +187,32 @@
     margin: 32px 0 64px;
 }
 .search-form__input {
-    background: #FFFFFF;
-    border: 1px solid #D1D2D6;
-    box-sizing: border-box;
-    backdrop-filter: blur(8px);
-    border-radius: 100px;
-    height: 64px;
-    width: 100%;
-    font-family: Roboto;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 22px;
-    color: #B6BCBF;
-    padding-left: 24px;
+  background: #FFFFFF;
+  border: 1px solid #D1D2D6;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  height: 64px;
+  width: 100%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A1B22;
+  padding-left: 24px;
+}
+
+.search-form__input::placeholder {
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #B6BCBF;
+}
+
+.search-form__input:focus {
+  outline: none;
 }
 .search-form__button {
     position: absolute;
@@ -177,6 +255,10 @@
 .footer__menu-link:nth-child(2) {
     margin: 0 20px 0 30px;
 }
+
+.footer__menu-link:hover {
+  cursor: url(./images/Pointer.svg), pointer;
+}
 .footer__menu {
     display: flex;
     align-items: center;
@@ -208,8 +290,21 @@
     position: absolute;
     right: 24px;
 }
+
+.article-card__add-to-collection:hover {
+  background-image: url(./images/Rectangle-hover.svg);
+  cursor: url(./images/Pointer.svg), pointer;
+}
+
+.article-card__add-to-collection:focus {
+  outline: none;
+}
 .article-card__add-to-collection_enabled {
     background-image: url(./images/Rectangle_8_enabled.svg);
+}
+
+.article-card__add-to-collection_enabled:hover {
+  background-image: url(./images/Rectangle_8_enabled.svg);
 }
 .article-card__image {
     background-image: url(./images/image_08.jpg);
@@ -291,6 +386,15 @@
     line-height: 24px;
     color: #1A1B22;
 }
+
+.articles__more-button:hover {
+  cursor: url(./images/Pointer.svg), pointer;
+  opacity: 0.9;
+}
+
+.articles__more-button:focus {
+  outline: none;
+}
 .preloader__text {
     font-family: Roboto;
     font-weight: normal;
@@ -351,7 +455,6 @@
 .articles {
     padding: 80px 104px;
     background: #F5F6F7;
-    max-width: 1440px;
     margin: 0 auto;
 }
 .about__portrait {
@@ -471,6 +574,10 @@
 }
 .popup__switch-color-text {
   color: #2F71E5;
+}
+
+.popup__switch-color-text:hover {
+  cursor: url(./images/Pointer.svg), pointer;
 }
 .popup__switch {
   margin-top: 16px;

@@ -1,0 +1,15 @@
+.article-card__text-short {
+  display: none;
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A1B22;
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .article-card__text-short {
+    display: block;
+}
+}

@@ -5,3 +5,9 @@
     display: flex;
     padding: 80px 104px;
 }
+
+@media screen and (max-width: 1024px) {
+  .about {
+    padding: 40px;
+}
+}

@@ -6,3 +6,11 @@
     line-height: 24px;
     margin: 32px 0 64px;
 }
+
+@media screen and (max-width: 768px) {
+  .search-block__subtitle {
+    font-size: 18px;
+    line-height: 24px;
+    margin: 16px 0 48px;
+}
+}

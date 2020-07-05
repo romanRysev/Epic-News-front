@@ -30,3 +30,9 @@
   background-color: transparent;
   color: #1A1B22;
 }
+
+@media screen and (max-width: 768px) {
+  .header__autorization-button {
+    padding: 8px 12px;
+}
+}

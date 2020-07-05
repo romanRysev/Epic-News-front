@@ -1,5 +1,13 @@
 .about__portrait {
-    width: 464px;
+    max-width: 464px;
     height: 464px;
     border-radius: 1000px;
+}
+
+@media screen and (max-width: 1024px) {
+  .about__portrait {
+    margin-top: 20px;
+    max-width: 232px;
+    height: 232px;
+}
 }

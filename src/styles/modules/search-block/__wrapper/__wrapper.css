@@ -6,3 +6,9 @@
     margin: 0 auto;
     max-width: 608px;
 }
+
+@media screen and (max-width: 768px) {
+  .search-block__wrapper {
+    max-width: 448px;
+}
+}

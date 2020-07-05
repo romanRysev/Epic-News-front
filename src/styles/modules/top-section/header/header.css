@@ -13,3 +13,10 @@
 .header_theme_white {
   box-shadow: inset 0px -1px 0px #D1D2D6;
 }
+
+@media screen and (max-width: 900px) {
+  .header {
+    height: 66px;
+    padding: 0 40px;
+}
+}

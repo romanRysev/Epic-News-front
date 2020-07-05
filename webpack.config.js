@@ -2,6 +2,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssNano = require('cssnano');
 
 module.exports = {
   entry: { main: './src/index.js', articles: './src/articles.js' },
@@ -17,7 +19,7 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+      use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader', { loader: 'postcss-loader', options: {} }],
     },
     {
       test: /\.(png|jpg|gif|ico|svg)$/,
@@ -55,5 +57,21 @@ module.exports = {
       filename: 'articles.html',
     }),
     new WebpackMd5Hash(),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: CssNano,
+      cssProcessorPluginOptions: {
+        preset: ['default'],
+      },
+      canPrint: true,
+    }),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: require('autoprefixer'),
+      cssProcessorPluginOptions: {
+        preset: ['default'],
+      },
+      canPrint: true,
+    }),
   ],
 };

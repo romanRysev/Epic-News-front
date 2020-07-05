@@ -32,3 +32,9 @@
 .button_disabled:hover {
   cursor: auto;
 }
+
+@media screen and (max-width: 768px) {
+  .button {
+    height: 56px;
+}
+}

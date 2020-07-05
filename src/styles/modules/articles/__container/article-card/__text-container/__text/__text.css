@@ -6,3 +6,8 @@
     color: #1A1B22;
     margin: 0;
 }
+@media screen and (max-width: 1024px) {
+  .article-card__text {
+    display: none;
+}
+}

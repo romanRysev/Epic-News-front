@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="News for everyone!">
     <meta name="author" content="Roman Rysev">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <title>Epic News</title>
     <link rel="icon" href="<%=require('./images/N.png').default%>" type="image/png">
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[0] %>">
@@ -14,8 +15,8 @@
             <p class="header__title">Epic News</p>
             <div class="header__right-side">
                 <nav class="menu">
-                    <a href="./" class="menu__link menu__link-active">Главная</a>
-                    <a href="./articles.html" class="menu__link">Сохраненные статьи</a>
+                    <a href="index.html" class="menu__link menu__link-active">Главная</a>
+                    <a href="articles.html" class="menu__link">Сохраненные статьи</a>
                 </nav>
                 <button class="header__autorization-button">Пользователь<img class="header__autorization-button-icon" src="<%=require('./images/logout.svg').default%>" alt="logout"></button>
             </div>
@@ -24,7 +25,7 @@
             <div class="search-block__wrapper">
                 <h1 class="search-block__title">Что в мире творится?</h1>
                 <p class="search-block__subtitle">Находите самые свежие статьина любую тему и сохраняйте в своем личном кабинете.</p>
-                <form class="search-form" action="">
+                <form class="search-form">
                     <input type="text" class="search-form__input" placeholder="Введите тему новости">
                     <button class="button search-form__button">Искать</button>
                 </form>
@@ -50,9 +51,10 @@
                 </div>
                 <div class="article-card__text-container">
                     <p class="article-card__date">2 августа, 2019</p>
-                    <h3 class="article-card__title">Национальное достояние – парки</h2>
+                    <h3 class="article-card__title">Национальное достояние – парки</h3>
                     <p class="article-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                </div>
+                      <p class="article-card__text-short">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складыв...</p>
+                  </div>
                 <p class="article-card__source">Лента.ру</p>
 
             </div>
@@ -62,9 +64,10 @@
                 </div>
                 <div class="article-card__text-container">
                     <p class="article-card__date">2 августа, 2019</p>
-                    <h3 class="article-card__title">Лесные огоньки: история одной фотографии</h2>
+                    <h3 class="article-card__title">Лесные огоньки: история одной фотографии</h3>
                     <p class="article-card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-                </div>
+                    <p class="article-card__text-short">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складыв...</p>
+                  </div>
                 <p class="article-card__source">Медуза</p>
             </div>
             <div class="article-card">
@@ -73,9 +76,10 @@
                 </div>
                 <div class="article-card__text-container">
                     <p class="article-card__date">2 августа, 2019</p>
-                    <h3 class="article-card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h2>
+                    <h3 class="article-card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
                     <p class="article-card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-                </div>
+                    <p class="article-card__text-short">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складыв...</p>
+                  </div>
                 <p class="article-card__source">РИА</p>
             </div>
         </div>
@@ -104,7 +108,7 @@
           <button class="popup__close"><img src="<%=require('./images/close.svg').default%>" alt="закрыть" class="popup__close-img"></button>
           <div class="signin">
               <h2 class="signin__title popup__title">Вход</h2>
-              <form class="form signin__form" action="">
+              <form class="form signin__form">
                   <p class="form__input-title signin__email-title">Email</p>
                   <input type="text" class="form__input signin__email-input" placeholder="Введите почту">
                   <p class="signin__email-error form__error"></p>
@@ -117,7 +121,7 @@
           </div>
           <div class="signup">
               <h2 class="signup__title popup__title">Регистрация</h2>
-              <form class="form signup__form" action="">
+              <form class="form signup__form">
                   <p class="form__input-title signup__email-title">Email</p>
                   <input type="text" class="form__input signup__email-input" placeholder="Введите почту">
                   <p class="signup__email-error form__error"></p>

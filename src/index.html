@@ -46,7 +46,7 @@
         <div class="articles__container">
             <div class="article-card">
                 <div class="article-card__image">
-                  <div class="article-card__tip">Войдите, чтобы сохранять статьи</div>
+                  <p class="article-card__tip">Войдите, чтобы сохранять статьи</p>
                   <button class="article-card__add-to-collection"></button>
                 </div>
                 <div class="article-card__text-container">
@@ -96,10 +96,10 @@
     <section class="footer">
         <p class="copyright">&#169; 2020 Supersite, Powered by News API</p>
         <nav class="footer__menu">
-            <a href="#" class="footer__menu-link">Главная</a>
-            <a href="#" class="footer__menu-link">Яндекс.Практикум</a>
-            <a href="https://github.com/romanRysev" class="footer__menu-link"><img src="<%=require('./images/git.svg').default%>" alt="Гитхаб" class="footer__menu-image"></a>
-            <a href="#" class="footer__menu-link"><img src="<%=require('./images/FB.svg').default%>" alt="Facebook" class="footer__menu-image"></a>
+            <a href="index.html" class="footer__menu-link">Главная</a>
+            <a href="https://praktikum.yandex.ru/" class="footer__menu-link" target="_blank">Яндекс.Практикум</a>
+            <a href="https://github.com/romanRysev" class="footer__menu-link" target="_blank"><img src="<%=require('./images/git.svg').default%>" alt="Гитхаб" class="footer__menu-image"></a>
+            <a href="https://www.facebook.com/" class="footer__menu-link" target="_blank"><img src="<%=require('./images/FB.svg').default%>" alt="Facebook" class="footer__menu-image"></a>
         </nav>
     </section>
     <div class="popup">
@@ -110,7 +110,7 @@
               <h2 class="signin__title popup__title">Вход</h2>
               <form class="form signin__form">
                   <p class="form__input-title signin__email-title">Email</p>
-                  <input type="text" class="form__input signin__email-input" placeholder="Введите почту">
+                  <input type="text" class="form__input signin__email-input" pattern="[a-zA-Z0-9]+[a-zA-Z0-9._-]*@+[a-zA-Z0-9]+\.+[a-zA-Z]+" placeholder="Введите почту" required>
                   <p class="signin__email-error form__error"></p>
                   <p class="form__input-title signin__password-title">Пароль</p>
                   <input type="password" class="form__input signin__password-input" placeholder="Введите пароль">
@@ -118,27 +118,30 @@
                   <p class="signin__form-error form__error"></p>
                   <button class="button form__button signin__button signin__button_disabled">Войти</button>
               </form>
+              <div class="popup__switch">
+                или
+                  <span class="popup__switch-color-text "> Зарегистрироваться</span>
+                </div>
           </div>
           <div class="signup">
               <h2 class="signup__title popup__title">Регистрация</h2>
               <form class="form signup__form">
                   <p class="form__input-title signup__email-title">Email</p>
-                  <input type="text" class="form__input signup__email-input" placeholder="Введите почту">
+                  <input type="text" class="form__input signup__email-input" pattern="[a-zA-Z0-9]+[a-zA-Z0-9._-]*@+[a-zA-Z0-9]+\.+[a-zA-Z]+" placeholder="Введите почту" required>
                   <p class="signup__email-error form__error"></p>
                   <p class="form__input-title signup__password-title">Пароль</p>
-                  <input type="password" class="form__input signup__password-input" placeholder="Введите пароль">
+                  <input type="password" class="form__input signup__password-input" placeholder="Введите пароль" required>
                   <p class="signup__password-error form__error"></p>
                   <p class="form__input-title signup__name-title">Имя</p>
-                  <input type="text" class="form__input signup__name" placeholder="Введите своё имя">
+                  <input type="text" class="form__input signup__name" pattern="[A-Z][a-z]+(-?[A-Z][a-z]+)?" placeholder="Введите своё имя" minlength="2" maxlength="20" required>
                   <p class="signup__name-error form__error"></p>
                   <p class="signup__form-error form__error"></p>
                   <button class="button form__button signup__button button_disabled" disabled>Зарегистрироваться</button>
               </form>
-          </div>
-          <div class="popup__switch">
-            или
-              <span class="popup__switch-color-text "> Зарегистрироваться</span>
-              <span class="popup__switch-color-text "> Войти</span>
+              <div class="popup__switch">
+                или
+                  <span class="popup__switch-color-text "> Войти</span>
+                </div>
           </div>
       </div>
     </div>

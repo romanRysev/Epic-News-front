@@ -1,7 +1,7 @@
 .article-card__keyword {
   background: #FFFFFF;
   border-radius: 10px;
-  font-family: Roboto;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-weight: 900;
   font-size: 14px;
   line-height: 24px;
@@ -10,4 +10,5 @@
   position: absolute;
   top: 24px;
   left: 24px;
+  max-height: 40px;
 }

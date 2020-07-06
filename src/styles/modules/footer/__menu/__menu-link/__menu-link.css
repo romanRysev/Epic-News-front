@@ -1,7 +1,7 @@
 @import url('./__menu-image/__menu-image.css');
 
 .footer__menu-link {
-    font-family: Roboto;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;

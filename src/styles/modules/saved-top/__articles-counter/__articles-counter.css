@@ -7,3 +7,11 @@
   max-width: 530px;
   margin: 0;
 }
+
+@media screen and (max-width: 1024px) {
+  .saved-top__articles-counter {
+    font-size: 30px;
+    line-height: 34px;
+    max-width: 336px;
+  }
+}

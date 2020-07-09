@@ -4,6 +4,13 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 16px;
+    grid-row-gap: 16px;
     max-width: 1232px;
     margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .articles__container {
+    grid-row-gap: 8px;
+}
 }

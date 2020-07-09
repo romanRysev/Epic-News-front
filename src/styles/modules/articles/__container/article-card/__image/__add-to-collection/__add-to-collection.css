@@ -19,3 +19,9 @@
 .article-card__add-to-collection:focus {
   outline: none;
 }
+
+@media screen and (max-width: 1024px) {
+  .article-card__add-to-collection {
+    right: 8px;
+}
+}

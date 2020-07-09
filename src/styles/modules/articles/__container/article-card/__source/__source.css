@@ -11,3 +11,10 @@
     bottom: 24px;
     left: 24px;
 }
+
+@media screen and (max-width: 1024px) {
+  .article-card__source {
+    left: 16px;
+}
+
+}

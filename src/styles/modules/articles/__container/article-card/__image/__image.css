@@ -15,3 +15,10 @@
     border-top-right-radius: 16px;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 1024px) {
+  .article-card__image {
+    padding: 8px;
+    height: 150px;
+}
+}

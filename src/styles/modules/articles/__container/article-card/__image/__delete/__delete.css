@@ -19,3 +19,9 @@ cursor: url('../../../../../../../images/Pointer.svg'), pointer;
 .article-card__delete:focus {
 outline: none;
 }
+
+@media screen and (max-width: 1024px) {
+  .article-card__delete {
+    right: 8px;
+}
+}

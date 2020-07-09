@@ -6,3 +6,11 @@
   color: rgba(26, 27, 34, 0.5);
   margin: 0 0 28px;
 }
+
+@media screen and (max-width: 1024px) {
+  .saved-top__text {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+}

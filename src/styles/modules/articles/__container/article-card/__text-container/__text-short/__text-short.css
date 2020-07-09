@@ -11,5 +11,6 @@
 @media screen and (max-width: 1024px) {
   .article-card__text-short {
     display: block;
+
 }
 }

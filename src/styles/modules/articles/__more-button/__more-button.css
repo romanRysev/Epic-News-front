@@ -22,3 +22,9 @@
 .articles__more-button:focus {
   outline: none;
 }
+
+@media screen and (max-width: 1024px) {
+  .articles__more-button {
+    margin-top: 32px;
+}
+}

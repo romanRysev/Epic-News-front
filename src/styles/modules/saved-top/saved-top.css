@@ -6,3 +6,9 @@
 .saved-top {
   padding: 40px 104px 56px;
 }
+
+@media screen and (max-width: 1024px) {
+  .saved-top {
+    padding: 24px 40px 32px;
+  }
+}

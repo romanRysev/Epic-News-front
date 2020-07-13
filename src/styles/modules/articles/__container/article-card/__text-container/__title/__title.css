@@ -11,5 +11,14 @@
   .article-card__title {
     font-size: 22px;
     line-height: 24px;
+    margin: 12px 0 10px;
+}
+}
+
+@media screen and (max-width: 340px) {
+  .article-card__title {
+    font-size: 22px;
+    line-height: 26px;
+    margin-top: 10px;
 }
 }

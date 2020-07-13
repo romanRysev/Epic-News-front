@@ -15,6 +15,7 @@
 @media screen and (max-width: 1024px) {
   .article-card__source {
     left: 16px;
+    bottom: 16px;
 }
 
 }

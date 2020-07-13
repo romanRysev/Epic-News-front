@@ -32,6 +32,18 @@
 @media screen and (max-width: 900px) {
   .menu__link {
     height: 66px;
+}
+}
+
+@media screen and (max-width: 639px) {
+  .menu__link {
+    line-height: 56px;
     margin-right: 16px;
+    height: auto;
+    margin-right: 0;
+}
+
+.menu__link-active {
+  border: none;
 }
 }

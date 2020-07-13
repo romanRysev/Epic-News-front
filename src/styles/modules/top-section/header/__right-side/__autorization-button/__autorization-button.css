@@ -36,3 +36,11 @@
     padding: 8px 12px;
 }
 }
+
+@media screen and (max-width: 639px) {
+  .header__autorization-button {
+    width: 100%;
+    justify-content: center;
+    height: 56px;
+}
+}

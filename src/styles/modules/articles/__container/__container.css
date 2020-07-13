@@ -14,3 +14,16 @@
     grid-row-gap: 8px;
 }
 }
+
+@media screen and (max-width: 680px) {
+  .articles__container {
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media screen and (max-width: 520px) {
+  .articles__container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+}

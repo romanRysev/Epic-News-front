@@ -12,3 +12,9 @@
     padding: 16px 16px 48px;
 }
 }
+
+@media screen and (max-width: 340px) {
+  .article-card__text-container {
+    padding-bottom: 45px;
+}
+}

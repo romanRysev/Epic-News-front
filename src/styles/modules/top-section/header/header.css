@@ -1,5 +1,6 @@
 @import url('./__right-side/__right-side.css');
 @import url('./__title/__title.css');
+@import url('./__mobile-menu-button/__mobile-menu-button.css');
 
 .header {
     display: flex;
@@ -19,4 +20,19 @@
     height: 66px;
     padding: 0 40px;
 }
+}
+
+@media screen and (max-width: 639px) {
+  .header {
+    height: 56px;
+    padding: 16px 20px 16px 16px;
+    box-sizing: border-box;
+}
+
+.header_mobile-menu-is-opened {
+  background: #1A1B22;
+  position: relative;
+  z-index: 3;
+}
+
 }

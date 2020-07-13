@@ -13,3 +13,10 @@
     padding: 20px 40px;
 }
 }
+
+@media screen and (max-width: 600px) {
+  .footer {
+    flex-direction: column-reverse;
+    padding: 20px 16px;
+}
+}

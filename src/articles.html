@@ -99,11 +99,15 @@
 <section class="footer">
   <p class="copyright">&#169; 2020 Supersite, Powered by News API</p>
   <nav class="footer__menu">
-    <a href="index.html" class="footer__menu-link">Главная</a>
-    <a href="https://praktikum.yandex.ru/" class="footer__menu-link" target="_blank">Яндекс.Практикум</a>
-    <a href="https://github.com/romanRysev" class="footer__menu-link" target="_blank"><img src="<%=require('./images/git.svg').default%>" alt="Гитхаб" class="footer__menu-image"></a>
-    <a href="https://www.facebook.com/" class="footer__menu-link" target="_blank"><img src="<%=require('./images/FB.svg').default%>" alt="Facebook" class="footer__menu-image"></a>
-</nav>
+    <div class="footer__menu-links-container">
+      <a href="index.html" class="footer__menu-link">Главная</a>
+      <a href="https://praktikum.yandex.ru/" class="footer__menu-link" target="_blank">Яндекс.Практикум</a>
+    </div>
+    <div class="footer__menu-icons-container">
+      <a href="https://github.com/romanRysev" target="_blank"><img src="<%=require('./images/git.svg').default%>" alt="Гитхаб" class="footer__menu-image"></a>
+      <a href="https://www.facebook.com/" target="_blank"><img src="<%=require('./images/FB.svg').default%>" alt="Facebook" class="footer__menu-image"></a>
+    </div>
+    </nav>
 </section>
 <script src="<%= htmlWebpackPlugin.files.js[1] %>"></script>
 </body>

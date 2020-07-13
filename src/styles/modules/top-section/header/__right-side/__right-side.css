@@ -5,3 +5,23 @@
     display: flex;
     align-items: center;
 }
+
+@media screen and (max-width: 639px) {
+  .header__right-side {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    align-items: start;
+    top: 56px;
+    left: 0px;
+    background: #1A1B22;
+    padding: 16px 16px 20px;
+    box-sizing: border-box;
+    z-index: 3;
+}
+
+.header__right-side_mobile-menu-is-opened {
+  display: flex;
+}
+}

@@ -7,3 +7,11 @@
 .search-form__button:active {
   background: #2A65CC;
 }
+
+@media screen and (max-width: 540px) {
+  .search-form__button {
+    position: unset;
+    width: 100%;
+    margin-top: 16px;
+}
+}

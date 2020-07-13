@@ -14,3 +14,9 @@
     margin: 16px 0 48px;
 }
 }
+
+@media screen and (max-width: 540px) {
+  .search-block__subtitle {
+    margin-bottom: 122px;
+}
+}

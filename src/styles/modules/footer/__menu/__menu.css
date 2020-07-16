@@ -1,0 +1,14 @@
+@import url('./__menu-link/__menu-link.css');
+@import url('./__menu-icons-container/__menu-icons-container.css');
+@import url('./__menu-links-container/__menu-links-container.css');
+
+.footer__menu {
+    display: flex;
+}
+
+@media screen and (max-width: 600px) {
+  .footer__menu {
+    width: 100%;
+    justify-content: space-between;
+}
+}

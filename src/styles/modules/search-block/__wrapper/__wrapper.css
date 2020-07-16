@@ -1,0 +1,14 @@
+@import url('./__title/__title.css');
+@import url('./__subtitle/__subtitle.css');
+@import url('./search-form/search-form.css');
+
+.search-block__wrapper {
+    margin: 0 auto;
+    max-width: 608px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-block__wrapper {
+    max-width: 448px;
+}
+}

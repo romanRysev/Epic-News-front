@@ -1,0 +1,20 @@
+@import url('./__date/__date.css');
+@import url('./__title/__title.css');
+@import url('./__text/__text.css');
+@import url('./__text-short/__text-short.css');
+
+.article-card__text-container {
+    padding: 20px 24px 54px;
+}
+
+@media screen and (max-width: 1024px) {
+  .article-card__text-container {
+    padding: 16px 16px 48px;
+}
+}
+
+@media screen and (max-width: 340px) {
+  .article-card__text-container {
+    padding-bottom: 45px;
+}
+}

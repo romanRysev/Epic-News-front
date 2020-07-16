@@ -1,0 +1,14 @@
+@import url('./__link/__link.css');
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 639px) {
+  .menu {
+    flex-direction: column;
+    align-items: start;
+    padding-bottom: 22px;
+}
+}

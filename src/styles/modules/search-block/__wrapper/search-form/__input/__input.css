@@ -1,0 +1,34 @@
+.search-form__input {
+  background: #FFFFFF;
+  border: 1px solid #D1D2D6;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  height: 64px;
+  width: 100%;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A1B22;
+  padding-left: 24px;
+}
+
+.search-form__input::placeholder {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #B6BCBF;
+}
+
+.search-form__input:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form__input {
+    height: 56px;
+}
+}

@@ -1,0 +1,22 @@
+@import url('./__title/__title.css');
+@import url('./__text/__text.css');
+
+.about__text-block {
+    margin-left: 56px;
+    max-width: 600px;
+    padding-top: 51px;
+}
+
+@media screen and (max-width: 1024px) {
+  .about__text-block {
+    margin-left: 32px;
+    max-width: 424px;
+    padding-top: 0;
+}
+}
+
+@media screen and (max-width: 640px) {
+  .about__text-block {
+    margin-left: 0;
+}
+}

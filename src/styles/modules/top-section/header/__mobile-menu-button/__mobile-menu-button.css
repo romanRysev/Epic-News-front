@@ -1,0 +1,22 @@
+.header__mobile-menu-button {
+  display: none;
+}
+
+
+@media screen and (max-width: 639px) {
+
+.header__mobile-menu-button {
+  display: block;
+  background-image:url('../../../../../images/menu.svg');
+  width: 24px;
+  height: 24px;
+}
+
+.header__mobile-menu-button:focus {
+  outline: none;
+}
+
+.header__mobile-menu-button_mobile-menu-is-opened {
+  background-image:url('../../../../../images/mobile-close.svg');
+}
+}

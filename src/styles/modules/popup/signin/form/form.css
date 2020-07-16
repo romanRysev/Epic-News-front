@@ -1,0 +1,9 @@
+@import url('./__input/__input.css');
+@import url('./__error/__error.css');
+@import url('./__input-title/__input-title.css');
+@import url('./__button/__button.css');
+
+.form {
+    display: flex;
+    flex-direction: column;
+}

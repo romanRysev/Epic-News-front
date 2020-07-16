@@ -1,0 +1,7 @@
+.popup__switch-color-text {
+  color: #2F71E5;
+}
+
+.popup__switch-color-text:hover {
+  cursor: url('../../../../../images/Pointer.svg'), pointer;
+}

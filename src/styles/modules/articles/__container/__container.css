@@ -1,0 +1,29 @@
+@import url('./article-card/article-card.css');
+
+.articles__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    max-width: 1232px;
+    margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .articles__container {
+    grid-row-gap: 8px;
+}
+}
+
+@media screen and (max-width: 680px) {
+  .articles__container {
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media screen and (max-width: 520px) {
+  .articles__container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+}

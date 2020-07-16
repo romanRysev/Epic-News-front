@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="News for everyone!">
+    <meta name="author" content="Roman Rysev">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <title>Epic News</title>
+    <link rel="icon" href="<%=require('./images/N.png').default%>" type="image/png">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[1]%>">
+</head>
+<body class="main">
+<section class="header header_theme_white">
+  <p class="header__title">Epic News</p>
+  <div class="header__right-side">
+      <nav class="menu menu__link_theme_white">
+          <a href="index.html" class="menu__link menu__link_theme_white">Главная</a>
+          <a href="articles.html" class="menu__link menu__link_theme_white menu__link_theme_white-active">Сохраненные статьи</a>
+      </nav>
+      <button class="header__autorization-button header__autorization-button_theme_white">Пользователь<img class="header__autorization-button-icon" src="<%=require('./images/logout_black.svg').default%>" alt="logout"></button>
+  </div>
+  <div class="header__mobile-menu-button"></div>
+</section>
+<section class="saved-top">
+    <p class="saved-top__text">Сохраненные статьи</p>
+    <h2 class="saved-top__articles-counter">Грета, у вас 5 сохранённых статей</h2>
+    <p class="saved-top__keywords">По ключевым словам: <span class="saved-top__keyword">Природа,</span> <span class="saved-top__keyword">Тайга</span> и <span class="saved-top__keyword">2 другим</span></p>
+</section>
+<section class="articles">
+  <div class="articles__container">
+      <div class="article-card">
+          <div class="article-card__image">
+              <div class="article-card__keyword">Тайга</div>
+              <div class="article-card__tip">Убрать из сохранённых</div>
+              <button class="article-card__delete"></button>
+          </div>
+          <div class="article-card__text-container">
+              <p class="article-card__date">2 августа, 2019</p>
+              <h3 class="article-card__title">Национальное достояние – парки</h2>
+              <p class="article-card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+              <p class="article-card__text-short">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складыв...</p>
+            </div>
+          <p class="article-card__source">Лента.ру</p>
+
+      </div>
+      <div class="article-card">
+          <div class="article-card__image">
+            <div class="article-card__keyword">Тайга</div>
+              <button class="article-card__delete article-card__delete_enabled"></button>
+          </div>
+          <div class="article-card__text-container">
+              <p class="article-card__date">2 августа, 2019</p>
+              <h3 class="article-card__title">Лесные огоньки: история одной фотографии</h2>
+              <p class="article-card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+              <p class="article-card__text-short">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складыв...</p>
+            </div>
+          <p class="article-card__source">Медуза</p>
+      </div>
+      <div class="article-card">
+          <div class="article-card__image">
+            <div class="article-card__keyword">Тайга</div>
+              <button class="article-card__delete"></button>
+          </div>
+          <div class="article-card__text-container">
+              <p class="article-card__date">2 августа, 2019</p>
+              <h3 class="article-card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h2>
+              <p class="article-card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+              <p class="article-card__text-short">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складыв...</p>
+            </div>
+          <p class="article-card__source">РИА</p>
+      </div>
+      <div class="article-card">
+        <div class="article-card__image">
+          <div class="article-card__keyword">Тайга</div>
+            <button class="article-card__delete"></button>
+        </div>
+        <div class="article-card__text-container">
+            <p class="article-card__date">2 августа, 2019</p>
+            <h3 class="article-card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h2>
+            <p class="article-card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+            <p class="article-card__text-short">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складыв...</p>
+          </div>
+        <p class="article-card__source">РИА</p>
+    </div>
+    <div class="article-card">
+      <div class="article-card__image">
+        <div class="article-card__keyword">Тайга</div>
+          <button class="article-card__delete"></button>
+      </div>
+      <div class="article-card__text-container">
+          <p class="article-card__date">2 августа, 2019</p>
+          <h3 class="article-card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h2>
+          <p class="article-card__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+          <p class="article-card__text-short">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складыв...</p>
+        </div>
+      <p class="article-card__source">РИА</p>
+  </div>
+  </div>
+</section>
+<section class="footer">
+  <p class="copyright">&#169; 2020 Supersite, Powered by News API</p>
+  <nav class="footer__menu">
+    <div class="footer__menu-links-container">
+      <a href="index.html" class="footer__menu-link">Главная</a>
+      <a href="https://praktikum.yandex.ru/" class="footer__menu-link" target="_blank">Яндекс.Практикум</a>
+    </div>
+    <div class="footer__menu-icons-container">
+      <a href="https://github.com/romanRysev" target="_blank"><img src="<%=require('./images/git.svg').default%>" alt="Гитхаб" class="footer__menu-image"></a>
+      <a href="https://www.facebook.com/" target="_blank"><img src="<%=require('./images/FB.svg').default%>" alt="Facebook" class="footer__menu-image"></a>
+    </div>
+    </nav>
+</section>
+<script src="<%= htmlWebpackPlugin.files.js[1] %>"></script>
+</body>
+</html>

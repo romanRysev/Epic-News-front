@@ -1,0 +1,15 @@
+.search-block__title {
+    font-family: Roboto Slab, 'Times New Roman', Times, serif;
+    font-size: 60px;
+    font-weight: normal;
+    line-height: 64px;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .search-block__title {
+    font-size: 36px;
+    line-height: 40px;
+    max-width: 380px;
+}
+}

@@ -1,11 +1,11 @@
 export class Popup {
   constructor() {
-
+    this.popupContent = document.querySelector('.popup__content');
+    this.popup = document.querySelector('.popup');
   }
 
   setContent(props) {
     const {contentType} = props;
-    const popupContent = document.querySelector('.popup__content');
     console.log(contentType);
     const signinPopupContent = `<div class="signin">
     <h2 class="signin__title popup__title">Вход</h2>
@@ -46,34 +46,34 @@ const signupPopupContent = `<div class="signup">
   </div>
 </div>`
 
-const signupSuccessfulPopupContent = `<h2 class="signup__title popup__title">Пользователь успешно зарегистрирован!</h2>
-<span class="popup__switch-color-text ">Выполнить вход</span>`
+const signupSuccessfulPopupContent = `<div class="signup-successful"><h2 class="signup__title popup__title">Пользователь успешно зарегистрирован!</h2>
+<span class="popup__switch-color-text ">Выполнить вход</span></div>`
 
     switch (contentType) {
       case 'signin':
-        popupContent.insertAdjacentHTML('beforeend', signinPopupContent);
+        this.popupContent.insertAdjacentHTML('beforeend', signinPopupContent);
       break;
 
       case 'signup':
-        popupContent.insertAdjacentHTML('beforeend', signupPopupContent);
+        this.popupContent.insertAdjacentHTML('beforeend', signupPopupContent);
       break;
 
       case 'signup-successful':
-        popupContent.insertAdjacentHTML('beforeend', signupSuccessfulPopupContent);
+        this.popupContent.insertAdjacentHTML('beforeend', signupSuccessfulPopupContent);
       break;
     }
 
   }
 
   clearContent() {
-
+    this.popupContent.lastChild.remove();
   }
 
   open() {
-
+    this.popup.classList.add('popup_is-opened');
   }
 
   close() {
-
+    this.popup.classList.remove('popup_is-opened');
   }
 }

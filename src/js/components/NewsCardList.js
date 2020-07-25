@@ -15,8 +15,6 @@ export class NewsCardList {
     }
 
     renderList() {
-        console.log(this.articles);
-        console.log(this.elemsPerPage);
         const cardsPerPage = this.articles.slice(this.elemsPerPage-3, this.elemsPerPage)
         for (const elem of cardsPerPage) {
             this.addCard(elem);

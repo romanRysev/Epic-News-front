@@ -26,7 +26,7 @@ import { Form } from "./components/Form";
   async function a(word) {
     preloader.classList.add("preloader_visible");
     await Api.getNews(word).then((res) => {
-      CardList.renderList(res);
+      CardList.renderList(res, word);
     });
     preloader.classList.remove("preloader_visible");
   }
@@ -49,7 +49,20 @@ import { Form } from "./components/Form";
     searchForm._clear;
   });
 
-  cardList.addEventListener('click', (event) => { if(event.target.classList.contains('article-card__add-to-collection')) { BaseApi.createArticle(CardList.articles[1]).then(Card.renderIcon(HeaderBlock.isLoggedIn, event.target)) } });
+  cardList.addEventListener("click", (event) => {
+    if (event.target.classList.contains("article-card__add-to-collection")) {
+      BaseApi.createArticle(
+        CardList.articles.find(
+          (item) =>
+            item.title ==
+            event.target.parentElement.parentElement.querySelector(
+              ".article-card__title"
+            ).textContent
+        ),
+        CardList.keyword
+      ).then(Card.renderIcon(HeaderBlock.isLoggedIn, event.target));
+    }
+  });
 
   BaseApi.getMe().then((res) => {
     HeaderBlock.render(res);

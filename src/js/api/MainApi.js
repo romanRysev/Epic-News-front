@@ -58,16 +58,16 @@ export class MainApi {
     return this.makeFetch("articles/").then((res) => console.log(res));
   }
 
-  createArticle(data) {
-    const {keyword, title, text, date, source, link, image} = data;
+  createArticle(data, word) {
+    const {title, content, publishedAt, source, url, urlToImage} = data;
     return this.makeFetch("articles/", "POST", {
-      keyword,
+      keyword: word,
       title,
-      text,
-      date,
-      source,
-      link,
-      image,
+      text: content,
+      date: publishedAt,
+      source: source.name,
+      link: url,
+      image: urlToImage,
     }).then((res) => console.log(res));
   }
 

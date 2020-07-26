@@ -4,10 +4,12 @@ export class NewsCardList {
     this.cardInstance = cardInstance;
     this.elemsPerPage = 3;
     this.articles = [];
+    this.keyword = '';
   }
 
-  renderList(data) {
+  renderList(data, keyword) {
     this.articles = data.articles;
+    this.keyword = keyword;
     for (const elem of this.articles) {
       this.addCard(elem);
     }

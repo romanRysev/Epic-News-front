@@ -8,6 +8,8 @@ export class NewsCardList {
   }
 
   renderList(data, keyword) {
+
+    if(data.articles) {
     this.articles = data.articles;
     this.keyword = keyword;
     for (const elem of this.articles) {
@@ -16,6 +18,14 @@ export class NewsCardList {
 
     for (let i = 0; i < 3; i++) {
       this.element.children[i].classList.add('article-card_visible');
+    }} else {
+      this.articles = data.data;
+      for (const elem of this.articles) {
+        this.addCard(elem);
+      }
+      for (let i = 0; i < this.articles.length; i++) {
+        this.element.children[i].classList.add('article-card_visible');
+      }
     }
   }
 

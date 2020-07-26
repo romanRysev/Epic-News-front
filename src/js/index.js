@@ -65,7 +65,7 @@ import { Form } from "./components/Form";
   });
 
   BaseApi.getMe().then((res) => {
-    HeaderBlock.render(res);
+    HeaderBlock.render(res, 'main');
   });
 
   //BaseApi.signup();

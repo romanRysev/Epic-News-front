@@ -1,21 +1,25 @@
 export class Header {
   constructor() {
-
+    this.isLoggedIn = false;
+    this.userName = '';
   }
 
   render(props) {
-    const { isLoggedIn, userName } = props;
-    const button =  document.querySelector('.header__autorization-button');
-    if(isLoggedIn) {
-      button.textContent = userName;
-      const buttonIcon = document.createElement('img');
-      buttonIcon.setAttribute('src', `./images/logout.svg`);
-      buttonIcon.setAttribute('alt', 'logout');
-      buttonIcon.classList.add('header__autorization-button-icon');
+    if (props) {
+      this.isLoggedIn = true
+      this.userName = props.data.name;
+    }
+    const button = document.querySelector(".header__autorization-button");
+    if (this.isLoggedIn) {
+      button.textContent = this.userName;
+      const buttonIcon = document.createElement("img");
+      buttonIcon.setAttribute("src", `./images/logout.svg`);
+      buttonIcon.setAttribute("alt", "logout");
+      buttonIcon.classList.add("header__autorization-button-icon");
       button.append(buttonIcon);
     } else {
-      button.textContent = 'Авторизоваться';
-      const link =  document.querySelector('.menu__link_home');
+      button.textContent = "Авторизоваться";
+      const link = document.querySelector(".menu__link_home");
       link.parentNode.remove(link);
     }
   }

@@ -1,15 +1,18 @@
 export class NewsCard {
-    constructor() {
+  constructor(page) {
+    this.page = page;
+  }
 
-    }
+  create(props) {
+    const { publishedAt, title, source, description, urlToImage, url } = props;
 
-    create(props) {
-      const {publishedAt, title, source, description, urlToImage, url} = props;
-
-      const template =`
+    let template = '';
+    if ((this.page = "main")) {
+      template = `
       <div class="article-card">
       <div class="article-card__image" style="background-image: url('${urlToImage}');">
           <button class="article-card__add-to-collection"></button>
+          <div class="article-card__tip"></div>
       </div>
       <a href="${url}" target="_blank">
       <div class="article-card__text-container">
@@ -20,19 +23,16 @@ export class NewsCard {
         </div>
         </a>
       <p class="article-card__source">${source.name}</p>
-  </div>`
-  return template;
+  </div>`; }
+
+    return template;
+  }
+
+  renderIcon(isLoggedIn, iconElement) {
+    if (isLoggedIn) {
+      iconElement.classList.toggle("article-card__add-to-collection_enabled");
+    } else {
+      iconElement.nextSibling.textContent = "Войдите, чтобы сохранять статьи";
     }
-
-    renderIcon(state) {
-        const {isLoggedIn, isSaved} = state
-
-        if(isLoggedIn) {
-            if(isSaved) {
-                
-            }
-
-        }
-
-    }
+  }
 }

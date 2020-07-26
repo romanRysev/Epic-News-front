@@ -1,21 +1,19 @@
-import {newsServerUrl, newsApiToken} from '../constants/constants';
+import { newsServerUrl, newsApiToken } from "../constants/constants";
 
 export class NewsApi {
   constructor() {
-    this.baseUrl = newsServerUrl,
-    this.ApiToken = newsApiToken;
-    this.headers= {
-      'Content-Type': 'application/json'
-    }
+    (this.baseUrl = newsServerUrl), (this.ApiToken = newsApiToken);
+    this.headers = {
+      "Content-Type": "application/json",
+    };
   }
 
   getNews(keyword) {
-
     return fetch(`${this.baseUrl}?q=${keyword}&apiKey=${this.ApiToken}`, {
-      method: 'GET',
+      method: "GET",
       headers: this.headers,
     })
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
           return res.json();
         }

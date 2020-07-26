@@ -1,1 +1,1 @@
-import '../styles/articles/index.css';
+import "../styles/articles/index.css";

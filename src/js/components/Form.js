@@ -3,13 +3,9 @@ export class Form {
     this.form = form;
   }
 
-  _validateInputElement(event, errorElement) {
+  _validateInputElement(event, errorElement) {}
 
-  }
-
-  _validateForm() {
-
-  }
+  _validateForm() {}
 
   _clear() {
     this.form.reset();

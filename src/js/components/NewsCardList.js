@@ -1,24 +1,36 @@
 export class NewsCardList {
-    constructor(cardInstance) {
-        this.element = document.querySelector('.articles__container');
-        this.cardInstance = cardInstance;
-        this.elemsPerPage = 3;
-        this.articles = [];
+  constructor(cardInstance) {
+    this.element = document.querySelector(".articles__container");
+    this.cardInstance = cardInstance;
+    this.elemsPerPage = 3;
+    this.articles = [];
+  }
+
+  renderList(data) {
+    this.articles = data.articles;
+    for (const elem of this.articles) {
+      this.addCard(elem);
     }
 
-    setArticles(data) {
-        this.articles = data.articles;
+    for (let i = 0; i < 3; i++) {
+      this.element.children[i].classList.add('article-card_visible');
     }
+  }
 
-    addCard(card) {
-        this.element.insertAdjacentHTML('beforeend', (this.cardInstance.create(card)));
-    }
+  addCard(card) {
+    this.element.insertAdjacentHTML(
+      "beforeend",
+      this.cardInstance.create(card)
+    );
+  }
 
-    renderList() {
-        const cardsPerPage = this.articles.slice(this.elemsPerPage-3, this.elemsPerPage)
-        for (const elem of cardsPerPage) {
-            this.addCard(elem);
-          }
-          this.elemsPerPage += 3;
+  showMore() {
+    for (let i = this.elemsPerPage; i <= this.elemsPerPage+3; i++) {
+      if(i<=this.element.children.length) {
+      this.element.children[i-1].classList.add('article-card_visible');
+      };
     }
+    this.elemsPerPage += 3;
+  }
+
 }

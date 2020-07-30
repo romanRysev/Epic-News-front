@@ -12,7 +12,7 @@ export class NewsCardList {
   renderList(data, keyword) {
     if (data.articles) {
       if(data.articles.length ==0) {      this.clear();
-        this.notFound.classList.add("articles-not-found_visible");}
+        this.notFound.classList.add("articles-not-found_visible");} else {
         this.articles = data.articles;
         this.keyword = keyword;
         for (const elem of this.articles) {
@@ -23,7 +23,7 @@ export class NewsCardList {
           this.element.children[i].classList.add("article-card_visible");
         }
 
-        this.moreButton.classList.add('articles__more-button_visible');
+        this.moreButton.classList.add('articles__more-button_visible');}
 
     } else {
 

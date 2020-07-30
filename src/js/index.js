@@ -52,9 +52,7 @@ import { Form } from "./components/Form";
         event.preventDefault();
         const data = { email: email.value, password: password.value };
         BaseApi.signin(data).then((res) => {
-          BaseApi.getMe().then((res) => {
-            HeaderBlock.render(res, "main");
-          });
+          location.reload();
         });
         signinForm._clear();
         PopupWindow.close();
@@ -62,6 +60,7 @@ import { Form } from "./components/Form";
       PopupWindow.open();
     }
     if (HeaderBlock.isLoggedIn) {
+      console.log(HeaderBlock.isLoggedIn)
       BaseApi.signin({
         email: "logout@logout.ru",
         password: "logoutlogout",
@@ -78,7 +77,6 @@ import { Form } from "./components/Form";
         PopupWindow.clearContent();
         PopupWindow.setContent({ contentType: "signin" });
       } else {
-        console.log(2);
         PopupWindow.clearContent();
         PopupWindow.setContent({ contentType: "signup" });
       }
@@ -97,6 +95,7 @@ import { Form } from "./components/Form";
 
   cardList.addEventListener("click", (event) => {
     if (event.target.classList.contains("article-card__add-to-collection")) {
+      if(HeaderBlock.isLoggedIn) {
       BaseApi.createArticle(
         CardList.articles.find(
           (item) =>
@@ -106,7 +105,8 @@ import { Form } from "./components/Form";
             ).textContent
         ),
         CardList.keyword
-      ).then(Card.renderIcon(HeaderBlock.isLoggedIn, event.target));
+      ).then(Card.renderIcon(HeaderBlock.isLoggedIn, event.target));}
+      else {Card.renderIcon(HeaderBlock.isLoggedIn, event.target);}
     }
   });
   //BaseApi.signup();

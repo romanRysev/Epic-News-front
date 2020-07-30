@@ -12,17 +12,58 @@ import { NewsCardList } from "./components/NewsCardList";
 
   const userName = document.querySelector(".saved-top__username");
   const articlesCounter = document.querySelector(".saved-top__counter-value");
+  const cardList = document.querySelector(".articles__container");
 
-  BaseApi.getMe().then((res) => {
-    HeaderBlock.render(res, "articles");
-  });
-
-  BaseApi.getArticles().then((res) => {
-    if (!HeaderBlock.isLoggedIn) {
-      window.location.href = "index.html";
+  cardList.addEventListener("click", (event) => {
+    if (event.target.classList.contains("article-card__delete")) {
+      BaseApi.removeArticle(
+        CardList.articles.find(
+          (item) =>
+            item.title ==
+            event.target.parentElement.parentElement.querySelector(
+              ".article-card__title"
+            ).textContent
+        )._id
+      ).then((res) => {
+        location.reload();
+      });
     }
-    CardList.renderList(res);
-    userName.textContent = HeaderBlock.userName;
-    articlesCounter.textContent = res.data.length;
   });
+
+  BaseApi.getMe()
+    .then((res) => {
+      HeaderBlock.render(res, "articles");
+      if (!HeaderBlock.isLoggedIn) {
+        window.location.href = "index.html";
+      }
+    })
+    .then((res) => {
+      BaseApi.getArticles().then((res) => {
+        CardList.renderList(res);
+        userName.textContent = HeaderBlock.userName;
+        articlesCounter.textContent = res.data.length;
+
+        const keywords = res.data.map((item) => {
+          return { keyword: item.keyword };
+        });
+        const keywordsRes = {};
+        keywords.forEach((element) => {
+          if (!(element.keyword in keywordsRes)) {
+            keywordsRes[element.keyword] = 1;
+          } else {
+            keywordsRes[element.keyword] = keywordsRes[element.keyword] + 1;
+          }
+        });
+        let maxElemFirst = 0;
+        let maxElemSecond = 0;
+        const res1 = {};
+        for (const elem in keywordsRes) {
+          if (keywordsRes[elem] >= maxElemFirst) {
+            maxElemFirst = keywordsRes[elem];
+          }
+        }
+        console.log(maxElemFirst);
+        console.log(keywordsRes);
+      });
+    });
 })();

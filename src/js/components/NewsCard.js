@@ -40,7 +40,7 @@ export class NewsCard {
       template = `
       <div class="article-card">
       <div class="article-card__image" style="background-image: url('${urlToImage}');">
-          <button class="article-card__add-to-collection"></button>
+          <button class="article-card__delete"></button>
           <div class="article-card__tip"></div>
       </div>
       <a href="${url}" target="_blank">
@@ -61,8 +61,10 @@ export class NewsCard {
   renderIcon(isLoggedIn, iconElement) {
     if (isLoggedIn) {
       iconElement.classList.toggle("article-card__add-to-collection_enabled");
-    } else {
-      iconElement.nextSibling.textContent = "Войдите, чтобы сохранять статьи";
+    } else { console.log(iconElement.parentNode.querySelector(".article-card__tip"))
+
+      iconElement.parentNode.querySelector(".article-card__tip").textContent = "Войдите, чтобы сохранять статьи";
+      iconElement.parentNode.querySelector(".article-card__tip").classList.add('article-card__tip_showed');
     }
   }
 }

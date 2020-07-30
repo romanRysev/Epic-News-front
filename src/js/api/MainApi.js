@@ -47,10 +47,18 @@ export class MainApi {
     }).then((res) => console.log(res));
   }
 
-  signin() {
+  signin(data) {
+    const { email, password, mode } = data;
+    if (!mode) {
+      return this.makeFetch("signin", "POST", {
+        email: email,
+        password: password,
+      });
+    }
     return this.makeFetch("signin", "POST", {
-      email: "peley9171@gmail.com",
-      password: "62vgvhc4",
+      email: email,
+      password: password,
+      mode: mode,
     });
   }
 
@@ -59,7 +67,7 @@ export class MainApi {
   }
 
   createArticle(data, word) {
-    const {title, description, publishedAt, source, url, urlToImage} = data;
+    const { title, description, publishedAt, source, url, urlToImage } = data;
     return this.makeFetch("articles/", "POST", {
       keyword: word,
       title,

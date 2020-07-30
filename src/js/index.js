@@ -22,6 +22,7 @@ import { Form } from "./components/Form";
   const moreButton = document.querySelector(".articles__more-button");
   const searchFormInput = document.querySelector(".search-form__input");
   const cardList = document.querySelector(".articles__container");
+  const popupBlock = document.querySelector(".popup");
 
   async function a(word) {
     preloader.classList.add("preloader_visible");
@@ -31,14 +32,59 @@ import { Form } from "./components/Form";
     preloader.classList.remove("preloader_visible");
   }
 
+  BaseApi.getMe().then((res) => {
+    HeaderBlock.render(res, "main");
+  });
+
   moreButton.addEventListener("click", () => {
     CardList.showMore();
   });
+
   authButton.addEventListener("click", () => {
     PopupWindow.clearContent();
-    PopupWindow.setContent({ contentType: "signup-successful" });
-    PopupWindow.open();
+    if (!HeaderBlock.isLoggedIn) {
+      PopupWindow.setContent({ contentType: "signin" });
+      const signinFormElement = document.forms.signin;
+      const email = signinFormElement.elements.email;
+      const password = signinFormElement.elements.password;
+      const signinForm = new Form(signinFormElement);
+      signinFormElement.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = { email: email.value, password: password.value };
+        BaseApi.signin(data).then((res) => {
+          BaseApi.getMe().then((res) => {
+            HeaderBlock.render(res, "main");
+          });
+        });
+        signinForm._clear();
+        PopupWindow.close();
+      });
+      PopupWindow.open();
+    }
+    if (HeaderBlock.isLoggedIn) {
+      BaseApi.signin({
+        email: "logout@logout.ru",
+        password: "logoutlogout",
+        mode: "logout",
+      }).then((res) => {
+        location.reload();
+      });
+    }
   });
+
+  popupBlock.addEventListener("click", (event) => {
+    if (event.target.classList.contains("popup__switch-color-text")) {
+      if (PopupWindow.content == "signup") {
+        PopupWindow.clearContent();
+        PopupWindow.setContent({ contentType: "signin" });
+      } else {
+        console.log(2);
+        PopupWindow.clearContent();
+        PopupWindow.setContent({ contentType: "signup" });
+      }
+    }
+  });
+
   popupCloseButton.addEventListener("click", () => {
     PopupWindow.close();
   });
@@ -63,13 +109,8 @@ import { Form } from "./components/Form";
       ).then(Card.renderIcon(HeaderBlock.isLoggedIn, event.target));
     }
   });
-
-  BaseApi.getMe().then((res) => {
-    HeaderBlock.render(res, 'main');
-  });
-
   //BaseApi.signup();
-  //BaseApi.signin();
+  //  BaseApi.signin();
   //BaseApi.getArticles();
   //BaseApi.createArticle();
   //BaseApi.removeArticle('5f1c4ceb21d0ce63f04d0f83');

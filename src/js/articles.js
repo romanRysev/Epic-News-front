@@ -5,19 +5,24 @@ import { NewsCard } from "./components/NewsCard";
 import { NewsCardList } from "./components/NewsCardList";
 
 (function () {
-const HeaderBlock = new Header();
-const Card = new NewsCard("articles");
-const CardList = new NewsCardList(Card);
-const BaseApi = new MainApi();
+  const HeaderBlock = new Header();
+  const Card = new NewsCard("articles");
+  const CardList = new NewsCardList(Card);
+  const BaseApi = new MainApi();
 
-BaseApi.getMe().then((res) => {HeaderBlock.render(res, 'articles');
-});
+  const userName = document.querySelector(".saved-top__username");
+  const articlesCounter = document.querySelector(".saved-top__counter-value");
 
-async function a() {
-  await BaseApi.getArticles().then((res) => {CardList.renderList(res);
+  BaseApi.getMe().then((res) => {
+    HeaderBlock.render(res, "articles");
   });
-}
 
-a();
-
+  BaseApi.getArticles().then((res) => {
+    if (!HeaderBlock.isLoggedIn) {
+      window.location.href = "index.html";
+    }
+    CardList.renderList(res);
+    userName.textContent = HeaderBlock.userName;
+    articlesCounter.textContent = res.data.length;
+  });
 })();

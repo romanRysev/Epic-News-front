@@ -27,19 +27,19 @@
                 <h1 class="search-block__title">Что в мире творится?</h1>
                 <p class="search-block__subtitle">Находите самые свежие статьина любую тему и сохраняйте в своем личном кабинете.</p>
                 <form class="search-form">
-                    <input type="text" class="search-form__input" placeholder="Введите тему новости">
+                    <input type="text" class="search-form__input" placeholder="Введите тему новости" required>
                     <button class="button search-form__button">Искать</button>
                 </form>
             </div>
         </div>
     </section>
     <section class="articles">
+      <h2 class="articles__title">Результаты поиска</h2>
         <div class="articles-not-found">
             <img src="<%=require('./images/not-found_v1.svg').default%>" alt="Ничего не найдено" class="articles-not-found__img">
             <h2 class="articles-not-found__title">Ничего не найдено</h2>
             <p class="articles-not-found__text">К сожалению по вашему запросу ничего не найдено.</p>
         </div>
-        <h2 class="articles__title">Результаты поиска</h2>
         <div class="preloader">
             <i class="circle-preloader"></i>
             <p class="preloader__text">Идет поиск новостей...</p>

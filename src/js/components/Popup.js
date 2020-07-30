@@ -2,19 +2,19 @@ export class Popup {
   constructor() {
     this.popupContent = document.querySelector(".popup__content");
     this.popup = document.querySelector(".popup");
+    this.content = '';
   }
 
   setContent(props) {
     const { contentType } = props;
-    console.log(contentType);
     const signinPopupContent = `<div class="signin">
     <h2 class="signin__title popup__title">Вход</h2>
-    <form class="form signin__form">
+    <form class="form signin__form" name="signin">
       <p class="form__input-title signin__email-title">Email</p>
-      <input type="email" class="form__input signin__email-input" pattern="[a-zA-Z0-9]+[a-zA-Z0-9._-]*@+[a-zA-Z0-9]+\.+[a-zA-Z]+" placeholder="Введите почту" required>
+      <input type="email" name="email" class="form__input signin__email-input" pattern="[a-zA-Z0-9]+[a-zA-Z0-9._-]*@+[a-zA-Z0-9]+\.+[a-zA-Z]+" placeholder="Введите почту" required>
       <p class="signin__email-error form__error"></p>
       <p class="form__input-title signin__password-title">Пароль</p>
-      <input type="password" class="form__input signin__password-input" placeholder="Введите пароль" required>
+      <input type="password" name="password" class="form__input signin__password-input" placeholder="Введите пароль" required>
       <p class="signin__password-error form__error"></p>
       <p class="signin__form-error form__error"></p>
       <button class="button form__button signin__button signin__button_disabled">Войти</button>
@@ -29,13 +29,13 @@ export class Popup {
 <h2 class="signup__title popup__title">Регистрация</h2>
 <form class="form signup__form">
     <p class="form__input-title signup__email-title">Email</p>
-    <input type="email" class="form__input signup__email-input" pattern="[a-zA-Z0-9]+[a-zA-Z0-9._-]*@+[a-zA-Z0-9]+\.+[a-zA-Z]+" placeholder="Введите почту" required>
+    <input type="email" name="email" class="form__input signup__email-input" pattern="[a-zA-Z0-9]+[a-zA-Z0-9._-]*@+[a-zA-Z0-9]+\.+[a-zA-Z]+" placeholder="Введите почту" required>
     <p class="signup__email-error form__error"></p>
     <p class="form__input-title signup__password-title">Пароль</p>
-    <input type="password" class="form__input signup__password-input" placeholder="Введите пароль" required>
+    <input type="password" name="password" class="form__input signup__password-input" placeholder="Введите пароль" required>
     <p class="signup__password-error form__error"></p>
     <p class="form__input-title signup__name-title">Имя</p>
-    <input type="text" class="form__input signup__name" pattern="[A-Z][a-z]+(-?[A-Z][a-z]+)?" placeholder="Введите своё имя" minlength="2" maxlength="20" required>
+    <input type="text" name="name" class="form__input signup__name" pattern="[A-Z][a-z]+(-?[A-Z][a-z]+)?" placeholder="Введите своё имя" minlength="2" maxlength="20" required>
     <p class="signup__name-error form__error"></p>
     <p class="signup__form-error form__error"></p>
     <button class="button form__button signup__button button_disabled" disabled>Зарегистрироваться</button>
@@ -52,10 +52,12 @@ export class Popup {
     switch (contentType) {
       case "signin":
         this.popupContent.insertAdjacentHTML("beforeend", signinPopupContent);
+        this.content = contentType;
         break;
 
       case "signup":
         this.popupContent.insertAdjacentHTML("beforeend", signupPopupContent);
+        this.content = contentType;
         break;
 
       case "signup-successful":
@@ -63,6 +65,7 @@ export class Popup {
           "beforeend",
           signupSuccessfulPopupContent
         );
+        this.content = contentType;
         break;
     }
   }

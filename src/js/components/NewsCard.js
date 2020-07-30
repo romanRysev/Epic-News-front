@@ -31,8 +31,6 @@ export class NewsCard {
       <p class="article-card__source">${source.name}</p>
   </div>`;
     } else {
-      console.log(props);
-
       const publishedAt = props.date;
       const title = props.title;
       const source = props.source;

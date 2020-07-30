@@ -9,7 +9,7 @@ export class NewsApi {
   }
 
   getNews(keyword) {
-    return fetch(`${this.baseUrl}?q=${keyword}&apiKey=${this.ApiToken}`, {
+    return fetch(`${this.baseUrl}?q=${keyword}&language=ru&apiKey=${this.ApiToken}`, {
       method: "GET",
       headers: this.headers,
     })

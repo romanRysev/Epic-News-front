@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+.menu__link_invisible {
+display: none;
+}
+
 .menu__link:hover {
   cursor: url('../../../../../../../images/Pointer.svg'), pointer;
 }

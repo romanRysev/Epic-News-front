@@ -2,6 +2,7 @@ export class Header {
   constructor() {
     this.isLoggedIn = false;
     this.userName = "";
+    this.menuLink = document.querySelector(".menu__link_home");
   }
 
   render(props, page) {
@@ -28,8 +29,8 @@ export class Header {
       }
     } else {
       button.textContent = "Авторизоваться";
-      const link = document.querySelector(".menu__link_home");
-      link.parentNode.remove(link);
+      console.log(this.menuLink)
+      this.menuLink.classList.add('menu__link_invisible')
     }
   }
 }

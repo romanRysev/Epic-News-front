@@ -12,11 +12,15 @@ export class Form {
         return false;
       }
       if (event.target.validity.tooLong || event.target.validity.tooShort) {
-        errorElement.textContent = 'Должно быть от 2 до 20 символов'
+        errorElement.textContent = 'Неверная длинна'
         return false;
       }
       if (event.target.validity.typeMismatch) {
         errorElement.textContent = 'Здесь должна быть почта'
+        return false;
+      }
+      if(event.target.validity.patternMismatch) {
+        errorElement.textContent = 'Введите в правильном формате'
         return false;
       }
       errorElement.textContent = ''

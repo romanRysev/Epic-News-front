@@ -15,7 +15,7 @@
   display: none;
 }
 
-.article-card__tip_showed {
+.article-card__tip:hover .article-card__tip_showed {
   display: block;
 }
 

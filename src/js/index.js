@@ -25,8 +25,10 @@ import { Form } from "./components/Form";
   const cardList = document.querySelector(".articles__container");
   const popupBlock = document.querySelector(".popup");
   const searchFormElement = document.querySelector(".search-form");
+  const mobileMenuButton= document.querySelector('.header__mobile-menu-button');
 
   async function a(word) {
+    CardList.clear();
     preloader.classList.add("preloader_visible");
     await Api.getNews(word).then((res) => {
       CardList.renderList(res, word);
@@ -61,7 +63,6 @@ import { Form } from "./components/Form";
       PopupWindow.open();
     }
     if (HeaderBlock.isLoggedIn) {
-      console.log(HeaderBlock.isLoggedIn);
       BaseApi.signin({
         email: "logout@logout.ru",
         password: "logoutlogout",
@@ -142,6 +143,12 @@ import { Form } from "./components/Form";
     const errorElement = event.target.nextElementSibling;
     signinForm.setSubmitButtonState(signinForm.checkInputValidity(event, errorElement), event);
   });
+
+  mobileMenuButton.addEventListener('click', () => {
+    document.querySelector('.header__right-side').classList.toggle('header__right-side_mobile-menu-is-opened');
+    document.querySelector('.top-section').classList.toggle('top-section_mobile-menu-is-opened');
+    document.querySelector('.header').classList.toggle('header_mobile-menu-is-opened');
+  })
 
   //BaseApi.signup();
   //  BaseApi.signin();

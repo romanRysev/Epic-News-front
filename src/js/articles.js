@@ -13,6 +13,7 @@ import { NewsCardList } from "./components/NewsCardList";
   const userName = document.querySelector(".saved-top__username");
   const articlesCounter = document.querySelector(".saved-top__counter-value");
   const cardList = document.querySelector(".articles__container");
+  const logoutButton = document.querySelector(".header__autorization-button");
 
   cardList.addEventListener("click", (event) => {
     if (event.target.classList.contains("article-card__delete")) {
@@ -66,4 +67,14 @@ import { NewsCardList } from "./components/NewsCardList";
         console.log(keywordsRes);
       });
     });
+
+  logoutButton.addEventListener("click", () => {
+    BaseApi.signin({
+      email: "logout@logout.ru",
+      password: "logoutlogout",
+      mode: "logout",
+    }).then((res) => {
+      window.location.href = "index.html";
+    });
+  });
 })();

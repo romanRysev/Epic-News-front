@@ -37,11 +37,13 @@ export class NewsCard {
       const description = props.text;
       const urlToImage = props.image;
       const url = props.link;
+      const keyword = props.keyword;
       template = `
       <div class="article-card">
       <div class="article-card__image" style="background-image: url('${urlToImage}');">
+          <div class="article-card__keyword">${keyword}</div>
           <button class="article-card__delete"></button>
-          <div class="article-card__tip"></div>
+          <div class="article-card__tip">Убрать из сохранённых</div>
       </div>
       <a href="${url}" target="_blank">
       <div class="article-card__text-container">

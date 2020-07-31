@@ -14,7 +14,7 @@ export class Popup {
       <input type="email" name="email" class="form__input signin__email-input" pattern="[a-zA-Z0-9]+[a-zA-Z0-9._-]*@+[a-zA-Z0-9]+\.+[a-zA-Z]+" placeholder="Введите почту" required>
       <p class="signin__email-error form__error"></p>
       <p class="form__input-title signin__password-title">Пароль</p>
-      <input type="password" name="password" class="form__input signin__password-input" placeholder="Введите пароль" required>
+      <input type="password" name="password" class="form__input signin__password-input" placeholder="Введите пароль" minlength="7" required>
       <p class="signin__password-error form__error"></p>
       <p class="signin__form-error form__error"></p>
       <button class="button form__button signin__button button_disabled" disabled>Войти</button>
@@ -32,7 +32,7 @@ export class Popup {
     <input type="email" name="email" class="form__input signup__email-input" pattern="[a-zA-Z0-9]+[a-zA-Z0-9._-]*@+[a-zA-Z0-9]+\.+[a-zA-Z]+" placeholder="Введите почту" required>
     <p class="signup__email-error form__error"></p>
     <p class="form__input-title signup__password-title">Пароль</p>
-    <input type="password" name="password" class="form__input signup__password-input" placeholder="Введите пароль" required>
+    <input type="password" name="password" class="form__input signup__password-input" placeholder="Введите пароль" minlength="7" required>
     <p class="signup__password-error form__error"></p>
     <p class="form__input-title signup__name-title">Имя</p>
     <input type="text" name="name" class="form__input signup__name" pattern="[А-Яа-яёЁa-zA-Z-\s]*" placeholder="Введите своё имя" minlength="2" maxlength="20" required>

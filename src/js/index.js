@@ -14,8 +14,9 @@ import { Form } from "./components/Form";
   const Card = new NewsCard("main");
   const CardList = new NewsCardList(Card);
   const BaseApi = new MainApi();
-  const searchForm = new Form(document.querySelector(".search-form"));
-
+  const searchForm = new Form();
+  const signinForm = new Form();
+  const signupForm = new Form();
   const authButton = document.querySelector(".header__autorization-button");
   const popupCloseButton = document.querySelector(".popup__close");
   const preloader = document.querySelector(".preloader");
@@ -23,6 +24,7 @@ import { Form } from "./components/Form";
   const searchFormInput = document.querySelector(".search-form__input");
   const cardList = document.querySelector(".articles__container");
   const popupBlock = document.querySelector(".popup");
+  const searchFormElement = document.querySelector(".search-form");
 
   async function a(word) {
     preloader.classList.add("preloader_visible");
@@ -47,7 +49,6 @@ import { Form } from "./components/Form";
       const signinFormElement = document.forms.signin;
       const email = signinFormElement.elements.email;
       const password = signinFormElement.elements.password;
-      const signinForm = new Form(signinFormElement);
       signinFormElement.addEventListener("submit", (event) => {
         event.preventDefault();
         const data = { email: email.value, password: password.value };
@@ -60,7 +61,7 @@ import { Form } from "./components/Form";
       PopupWindow.open();
     }
     if (HeaderBlock.isLoggedIn) {
-      console.log(HeaderBlock.isLoggedIn)
+      console.log(HeaderBlock.isLoggedIn);
       BaseApi.signin({
         email: "logout@logout.ru",
         password: "logoutlogout",
@@ -76,9 +77,34 @@ import { Form } from "./components/Form";
       if (PopupWindow.content == "signup") {
         PopupWindow.clearContent();
         PopupWindow.setContent({ contentType: "signin" });
+        const signinFormElement = document.forms.signin;
+        const email = signinFormElement.elements.email;
+        const password = signinFormElement.elements.password;
+        signinFormElement.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const data = { email: email.value, password: password.value };
+          BaseApi.signin(data).then((res) => {
+            location.reload();
+          });
+          signinForm._clear();
+          PopupWindow.close();
+        });
       } else {
         PopupWindow.clearContent();
         PopupWindow.setContent({ contentType: "signup" });
+        const signupFormElement = document.forms.signup;
+        const email = signupFormElement.elements.email;
+        const password = signupFormElement.elements.password;
+        const name = signupFormElement.elements.name;
+        signupFormElement.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const data = { email: email.value, password: password.value, name: name.value };
+          BaseApi.signup(data).then((res) => {
+            location.reload();
+          });
+          signupForm._clear();
+          PopupWindow.close();
+        });
       }
     }
   });
@@ -87,7 +113,7 @@ import { Form } from "./components/Form";
     PopupWindow.close();
   });
 
-  searchForm.form.addEventListener("submit", (event) => {
+  searchFormElement.addEventListener("submit", (event) => {
     event.preventDefault();
     a(searchFormInput.value);
     searchForm._clear;
@@ -95,20 +121,28 @@ import { Form } from "./components/Form";
 
   cardList.addEventListener("click", (event) => {
     if (event.target.classList.contains("article-card__add-to-collection")) {
-      if(HeaderBlock.isLoggedIn) {
-      BaseApi.createArticle(
-        CardList.articles.find(
-          (item) =>
-            item.title ==
-            event.target.parentElement.parentElement.querySelector(
-              ".article-card__title"
-            ).textContent
-        ),
-        CardList.keyword
-      ).then(Card.renderIcon(HeaderBlock.isLoggedIn, event.target));}
-      else {Card.renderIcon(HeaderBlock.isLoggedIn, event.target);}
+      if (HeaderBlock.isLoggedIn) {
+        BaseApi.createArticle(
+          CardList.articles.find(
+            (item) =>
+              item.title ==
+              event.target.parentElement.parentElement.querySelector(
+                ".article-card__title"
+              ).textContent
+          ),
+          CardList.keyword
+        ).then(Card.renderIcon(HeaderBlock.isLoggedIn, event.target));
+      } else {
+        Card.renderIcon(HeaderBlock.isLoggedIn, event.target);
+      }
     }
   });
+
+  popupBlock.addEventListener("input", (event) => {
+    const errorElement = event.target.nextElementSibling;
+    signinForm.setSubmitButtonState(signinForm.checkInputValidity(event, errorElement), event);
+  });
+
   //BaseApi.signup();
   //  BaseApi.signin();
   //BaseApi.getArticles();

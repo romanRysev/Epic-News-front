@@ -39,11 +39,12 @@ export class MainApi {
     return this.makeFetch("users/me");
   }
 
-  signup() {
+  signup(data) {
+    const {email, password, name} = data;
     return this.makeFetch("signup", "POST", {
-      name: "Roman",
-      email: "peley9171@gmail.com",
-      password: "62vgvhc4",
+      name: name,
+      email: email,
+      password: password,
     }).then((res) => console.log(res));
   }
 

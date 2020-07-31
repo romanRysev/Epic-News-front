@@ -11,10 +11,12 @@ export class NewsCardList {
 
   renderList(data, keyword) {
     if (data.articles) {
-      if(data.articles.length ==0) {      this.clear();
+      this.clear();
+      if(data.articles.length ==0) {
         this.notFound.classList.add("articles-not-found_visible");} else {
         this.articles = data.articles;
         this.keyword = keyword;
+        this.notFound.classList.remove("articles-not-found_visible");
         for (const elem of this.articles) {
           this.addCard(elem);
         }

@@ -29,7 +29,6 @@ export class Header {
       }
     } else {
       button.textContent = "Авторизоваться";
-      console.log(this.menuLink)
       this.menuLink.classList.add('menu__link_invisible')
     }
   }

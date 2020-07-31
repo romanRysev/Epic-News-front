@@ -5,7 +5,6 @@ export class Form {
 
   checkInputValidity(event, errorElement) {
     const form = event.target.parentElement;
-    console.log(form.checkValidity());
     if (!form.checkValidity()) {
       if (event.target.validity.valueMissing) {
         errorElement.textContent = 'Это обязательное поле'

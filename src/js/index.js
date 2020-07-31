@@ -32,6 +32,7 @@ import { Form } from "./components/Form";
     preloader.classList.add("preloader_visible");
     await Api.getNews(word).then((res) => {
       CardList.renderList(res, word);
+      Card._renderIcon(HeaderBlock.isLoggedIn);
     });
     preloader.classList.remove("preloader_visible");
   }
@@ -75,7 +76,7 @@ import { Form } from "./components/Form";
 
   popupBlock.addEventListener("click", (event) => {
     if (event.target.classList.contains("popup__switch-color-text")) {
-      if (PopupWindow.content == "signup") {
+      if (PopupWindow.content == "signup" || PopupWindow.content == "signup-successful") {
         PopupWindow.clearContent();
         PopupWindow.setContent({ contentType: "signin" });
         const signinFormElement = document.forms.signin;
@@ -101,10 +102,10 @@ import { Form } from "./components/Form";
           event.preventDefault();
           const data = { email: email.value, password: password.value, name: name.value };
           BaseApi.signup(data).then((res) => {
-            location.reload();
+            PopupWindow.clearContent();
+            PopupWindow.setContent({ contentType: "signup-successful" });
           });
-          signupForm._clear();
-          PopupWindow.close();
+
         });
       }
     }

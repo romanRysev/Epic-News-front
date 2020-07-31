@@ -18,7 +18,7 @@ export class NewsCard {
       <div class="article-card">
       <div class="article-card__image" style="background-image: url('${urlToImage}');">
           <button class="article-card__add-to-collection"></button>
-          <div class="article-card__tip"></div>
+          <div class="article-card__tip">Войдите, чтобы сохранять статьи</div>
       </div>
       <a href="${url}" target="_blank">
       <div class="article-card__text-container">
@@ -43,7 +43,7 @@ export class NewsCard {
       <div class="article-card__image" style="background-image: url('${urlToImage}');">
           <div class="article-card__keyword">${keyword}</div>
           <button class="article-card__delete"></button>
-          <div class="article-card__tip">Убрать из сохранённых</div>
+          <div class="article-card__tip article-card__tip_showed">Убрать из сохранённых</div>
       </div>
       <a href="${url}" target="_blank">
       <div class="article-card__text-container">
@@ -63,10 +63,16 @@ export class NewsCard {
   renderIcon(isLoggedIn, iconElement) {
     if (isLoggedIn) {
       iconElement.classList.toggle("article-card__add-to-collection_enabled");
-    } else { console.log(iconElement.parentNode.querySelector(".article-card__tip"))
+    } else {
+      //iconElement.parentNode.querySelector(".article-card__tip").textContent = "Войдите, чтобы сохранять статьи";
+      //iconElement.parentNode.querySelector(".article-card__tip").classList.add('article-card__tip_showed');
+    }
+  }
 
-      iconElement.parentNode.querySelector(".article-card__tip").textContent = "Войдите, чтобы сохранять статьи";
-      iconElement.parentNode.querySelector(".article-card__tip").classList.add('article-card__tip_showed');
+  _renderIcon(isLoggedIn) {
+    if (!isLoggedIn) {
+      document.querySelectorAll(".article-card__tip").forEach(elem => {elem.classList.add('article-card__tip_showed')});
+      //document.querySelectorAll(".article-card__tip").classList.add('article-card__tip_showed');
     }
   }
 }

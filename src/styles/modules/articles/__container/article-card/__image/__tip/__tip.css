@@ -15,7 +15,11 @@
   display: none;
 }
 
-.article-card__tip:hover .article-card__tip_showed {
+.article-card__add-to-collection:hover + .article-card__tip_showed {
+  display: block;
+}
+
+.article-card__delete:hover + .article-card__tip_showed {
   display: block;
 }
 

@@ -22,7 +22,7 @@ export class NewsApi {
         return Promise.reject(`Ошибка: ${res.status}`);
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   }
 }

@@ -22,7 +22,7 @@ import { Form } from "./components/Form";
   const preloader = document.querySelector(".preloader");
   const moreButton = document.querySelector(".articles__more-button");
   const searchFormInput = document.querySelector(".search-form__input");
-  const cardList = document.querySelector(".articles__container");
+  const cardListElement = document.querySelector(".articles__container");
   const popupBlock = document.querySelector(".popup");
   const searchFormElement = document.querySelector(".search-form");
   const mobileMenuButton = document.querySelector(
@@ -33,8 +33,14 @@ import { Form } from "./components/Form";
     CardList.clear();
     preloader.classList.add("preloader_visible");
     await Api.getNews(word).then((res) => {
-      CardList.renderList(res, word);
-      Card._renderIcon(HeaderBlock.isLoggedIn);
+      if (res.ok) {
+        CardList.renderList(res, word);
+        Card._renderIcon(HeaderBlock.isLoggedIn);
+      } else {
+        cardListElement.textContent = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.';
+        cardListElement.classList.add('articles__container_with-error');
+        document.querySelector('.articles').classList.add('articles_visible');
+      }
     });
     preloader.classList.remove("preloader_visible");
   }
@@ -58,10 +64,16 @@ import { Form } from "./components/Form";
         event.preventDefault();
         const data = { email: email.value, password: password.value };
         BaseApi.signin(data).then((res) => {
-          location.reload();
+          if(!res.error) {
+            location.reload();
+            } else {
+              if(res.error == 401) {
+              document.querySelector('.signin__form-error').textContent = 'неверный пароль или почта';}
+              else {
+                document.querySelector('.signin__form-error').textContent = 'Ошибка на сервере. Попробуйте повторить позже.';
+              }
+            }
         });
-        signinForm._clear();
-        PopupWindow.close();
       });
       PopupWindow.open();
     }
@@ -91,10 +103,16 @@ import { Form } from "./components/Form";
           event.preventDefault();
           const data = { email: email.value, password: password.value };
           BaseApi.signin(data).then((res) => {
+            if(!res.error) {
             location.reload();
+            } else {
+              if(res.error == 401) {
+              document.querySelector('.signin__form-error').textContent = 'неверный пароль или почта';}
+              else {
+                document.querySelector('.signin__form-error').textContent = 'Ошибка на сервере. Попробуйте повторить позже.';
+              }
+            }
           });
-          signinForm._clear();
-          PopupWindow.close();
         });
       } else {
         PopupWindow.clearContent();
@@ -129,7 +147,7 @@ import { Form } from "./components/Form";
     searchForm._clear;
   });
 
-  cardList.addEventListener("click", (event) => {
+  cardListElement.addEventListener("click", (event) => {
     if (event.target.classList.contains("article-card__add-to-collection")) {
       if (HeaderBlock.isLoggedIn) {
         BaseApi.createArticle(
@@ -167,10 +185,4 @@ import { Form } from "./components/Form";
       .querySelector(".header")
       .classList.toggle("header_mobile-menu-is-opened");
   });
-
-  //BaseApi.signup();
-  //  BaseApi.signin();
-  //BaseApi.getArticles();
-  //BaseApi.createArticle();
-  //BaseApi.removeArticle('5f1c4ceb21d0ce63f04d0f83');
 })();

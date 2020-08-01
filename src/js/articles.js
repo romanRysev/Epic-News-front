@@ -40,31 +40,37 @@ import { NewsCardList } from "./components/NewsCardList";
     })
     .then((res) => {
       BaseApi.getArticles().then((res) => {
-        CardList.renderList(res);
-        userName.textContent = HeaderBlock.userName;
-        articlesCounter.textContent = res.data.length;
+        if (res) {
+          CardList.renderList(res);
+          userName.textContent = HeaderBlock.userName;
+          articlesCounter.textContent = res.data.length;
 
-        const keywords = res.data.map((item) => {
-          return { keyword: item.keyword };
-        });
-        const keywordsRes = {};
-        keywords.forEach((element) => {
-          if (!(element.keyword in keywordsRes)) {
-            keywordsRes[element.keyword] = 1;
-          } else {
-            keywordsRes[element.keyword] = keywordsRes[element.keyword] + 1;
+          const keywords = res.data.map((item) => {
+            return { keyword: item.keyword };
+          });
+          const keywordsRes = {};
+          keywords.forEach((element) => {
+            if (!(element.keyword in keywordsRes)) {
+              keywordsRes[element.keyword] = 1;
+            } else {
+              keywordsRes[element.keyword] = keywordsRes[element.keyword] + 1;
+            }
+          });
+          let maxElemFirst = 0;
+          let maxElemSecond = 0;
+          const res1 = {};
+          for (const elem in keywordsRes) {
+            if (keywordsRes[elem] >= maxElemFirst) {
+              maxElemFirst = keywordsRes[elem];
+            }
           }
-        });
-        let maxElemFirst = 0;
-        let maxElemSecond = 0;
-        const res1 = {};
-        for (const elem in keywordsRes) {
-          if (keywordsRes[elem] >= maxElemFirst) {
-            maxElemFirst = keywordsRes[elem];
-          }
+          console.log(maxElemFirst);
+          console.log(keywordsRes);
+        } else {
+          cardList.textContent = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.';
+          cardList.classList.add('articles__container_with-error');
+          document.querySelector('.articles').classList.add('articles_visible');
         }
-        console.log(maxElemFirst);
-        console.log(keywordsRes);
       });
     });
 

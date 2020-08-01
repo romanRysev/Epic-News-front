@@ -28,10 +28,10 @@ export class MainApi {
         if (res.ok) {
           return res.json();
         }
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return Promise.reject({error: res.status});
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   }
 

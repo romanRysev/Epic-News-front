@@ -6,7 +6,7 @@ export class Header {
   }
 
   render(props, page) {
-    if (props) {
+    if (!props.error) {
       this.isLoggedIn = true;
       this.userName = props.data.name;
     }

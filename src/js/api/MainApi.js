@@ -1,8 +1,8 @@
-import { baseServerUrl } from "../constants/constants";
+import { BASE_SERVER_URL } from "../constants/constants";
 
 export class MainApi {
   constructor() {
-    (this.baseUrl = baseServerUrl),
+    (this.baseUrl = BASE_SERVER_URL),
       (this.headers = {
         "Content-Type": "application/json",
         credentials: "include",

@@ -33,7 +33,7 @@ import { Form } from "./components/Form";
     CardList.clear();
     preloader.classList.add("preloader_visible");
     await Api.getNews(word).then((res) => {
-      if (res.ok) {
+      if (res.status == 'ok') {
         CardList.renderList(res, word);
         Card._renderIcon(HeaderBlock.isLoggedIn);
       } else {

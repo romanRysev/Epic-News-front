@@ -1,8 +1,8 @@
-import { newsServerUrl, newsApiToken } from "../constants/constants";
+import { NEWS_SERVER_URL, NEWS_API_TOKEN } from "../constants/constants";
 
 export class NewsApi {
   constructor() {
-    (this.baseUrl = newsServerUrl), (this.ApiToken = newsApiToken);
+    (this.baseUrl = NEWS_SERVER_URL), (this.ApiToken = NEWS_API_TOKEN);
     this.headers = {
       "Content-Type": "application/json",
     };

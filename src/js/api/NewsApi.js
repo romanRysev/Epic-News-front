@@ -9,7 +9,9 @@ export class NewsApi {
   }
 
   getNews(keyword) {
-    return fetch(`${this.baseUrl}?q=${keyword}&language=ru&apiKey=${this.ApiToken}`, {
+    const now = new Date();
+    const sevenDaysBefore = new Date(now.getTime()-7*24*60*60*1000);
+    return fetch(`${this.baseUrl}?q=${keyword}&from=${sevenDaysBefore.getFullYear}-${sevenDaysBefore.getMonth}-${sevenDaysBefore.getDay}&to=${now.getFullYear}-${now.getMonth}-${now.getDay}&language=ru&apiKey=${this.ApiToken}`, {
       method: "GET",
       headers: this.headers,
     })

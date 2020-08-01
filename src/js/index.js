@@ -25,7 +25,9 @@ import { Form } from "./components/Form";
   const cardList = document.querySelector(".articles__container");
   const popupBlock = document.querySelector(".popup");
   const searchFormElement = document.querySelector(".search-form");
-  const mobileMenuButton= document.querySelector('.header__mobile-menu-button');
+  const mobileMenuButton = document.querySelector(
+    ".header__mobile-menu-button"
+  );
 
   async function a(word) {
     CardList.clear();
@@ -76,7 +78,10 @@ import { Form } from "./components/Form";
 
   popupBlock.addEventListener("click", (event) => {
     if (event.target.classList.contains("popup__switch-color-text")) {
-      if (PopupWindow.content == "signup" || PopupWindow.content == "signup-successful") {
+      if (
+        PopupWindow.content == "signup" ||
+        PopupWindow.content == "signup-successful"
+      ) {
         PopupWindow.clearContent();
         PopupWindow.setContent({ contentType: "signin" });
         const signinFormElement = document.forms.signin;
@@ -100,12 +105,15 @@ import { Form } from "./components/Form";
         const name = signupFormElement.elements.name;
         signupFormElement.addEventListener("submit", (event) => {
           event.preventDefault();
-          const data = { email: email.value, password: password.value, name: name.value };
+          const data = {
+            email: email.value,
+            password: password.value,
+            name: name.value,
+          };
           BaseApi.signup(data).then((res) => {
             PopupWindow.clearContent();
             PopupWindow.setContent({ contentType: "signup-successful" });
           });
-
         });
       }
     }
@@ -142,14 +150,23 @@ import { Form } from "./components/Form";
 
   popupBlock.addEventListener("input", (event) => {
     const errorElement = event.target.nextElementSibling;
-    signinForm.setSubmitButtonState(signinForm.checkInputValidity(event, errorElement), event);
+    signinForm.setSubmitButtonState(
+      signinForm.checkInputValidity(event, errorElement),
+      event
+    );
   });
 
-  mobileMenuButton.addEventListener('click', () => {
-    document.querySelector('.header__right-side').classList.toggle('header__right-side_mobile-menu-is-opened');
-    document.querySelector('.top-section').classList.toggle('top-section_mobile-menu-is-opened');
-    document.querySelector('.header').classList.toggle('header_mobile-menu-is-opened');
-  })
+  mobileMenuButton.addEventListener("click", () => {
+    document
+      .querySelector(".header__right-side")
+      .classList.toggle("header__right-side_mobile-menu-is-opened");
+    document
+      .querySelector(".top-section")
+      .classList.toggle("top-section_mobile-menu-is-opened");
+    document
+      .querySelector(".header")
+      .classList.toggle("header_mobile-menu-is-opened");
+  });
 
   //BaseApi.signup();
   //  BaseApi.signin();

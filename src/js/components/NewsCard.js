@@ -1,6 +1,7 @@
 export class NewsCard {
   constructor(page) {
     this.page = page;
+    this.month = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
   }
 
   create(props) {
@@ -14,6 +15,7 @@ export class NewsCard {
         urlToImage,
         url,
       } = props;
+      const date = new Date( Date.parse(publishedAt) );
       template = `
       <div class="article-card">
       <div class="article-card__image" style="background-image: url('${urlToImage}');">
@@ -22,7 +24,7 @@ export class NewsCard {
       </div>
       <a href="${url}" target="_blank">
       <div class="article-card__text-container">
-          <p class="article-card__date">${publishedAt}</p>
+          <p class="article-card__date">${date.getDate()} ${this.month[date.getMonth()-1]}, ${date.getFullYear()}</p>
           <h3 class="article-card__title">${title}</h3>
           <p class="article-card__text">${description}</p>
           <p class="article-card__text-short">${description}</p>
@@ -31,13 +33,13 @@ export class NewsCard {
       <p class="article-card__source">${source.name}</p>
   </div>`;
     } else {
-      const publishedAt = props.date;
       const title = props.title;
       const source = props.source;
       const description = props.text;
       const urlToImage = props.image;
       const url = props.link;
       const keyword = props.keyword;
+      const publishedAt = new Date( Date.parse(props.date));
       template = `
       <div class="article-card">
       <div class="article-card__image" style="background-image: url('${urlToImage}');">
@@ -47,7 +49,7 @@ export class NewsCard {
       </div>
       <a href="${url}" target="_blank">
       <div class="article-card__text-container">
-          <p class="article-card__date">${publishedAt}</p>
+          <p class="article-card__date">${publishedAt.getDate()} ${this.month[publishedAt.getMonth()-1]}, ${publishedAt.getFullYear()}</p>
           <h3 class="article-card__title">${title}</h3>
           <p class="article-card__text">${description}</p>
           <p class="article-card__text-short">${description}</p>

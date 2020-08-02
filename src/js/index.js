@@ -16,7 +16,6 @@ import { Form } from "./components/Form";
   const BaseApi = new MainApi();
   const searchForm = new Form();
   const signinForm = new Form();
-  const signupForm = new Form();
   const authButton = document.querySelector(".header__autorization-button");
   const popupCloseButton = document.querySelector(".popup__close");
   const preloader = document.querySelector(".preloader");
@@ -133,9 +132,12 @@ import { Form } from "./components/Form";
             password: password.value,
             name: name.value,
           };
-          BaseApi.signup(data).then((res) => {
+          BaseApi.signup(data).then((res) => { if(res.data) {
             PopupWindow.clearContent();
             PopupWindow.setContent({ contentType: "signup-successful" });
+          } else {
+            document.querySelector('.signup__form-error').textContent='Ошибка регистрации';
+          }
           });
         });
       }

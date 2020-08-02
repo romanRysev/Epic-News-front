@@ -24,8 +24,13 @@ export class Header {
         const buttonIcon = document.createElement("img");
         buttonIcon.setAttribute("src", `./images/logout_black.svg`);
         buttonIcon.setAttribute("alt", "logout");
-        buttonIcon.classList.add("header__autorization-button-icon");
+        buttonIcon.classList.add("header__autorization-button-icon_black");
+        const buttonIconWhite = document.createElement("img");
+        buttonIconWhite.setAttribute("src", `./images/logout.svg`);
+        buttonIconWhite.setAttribute("alt", "logout");
+        buttonIconWhite.classList.add("header__autorization-button-icon");
         button.append(buttonIcon);
+        button.append(buttonIconWhite);
       }
     } else {
       button.textContent = "Авторизоваться";

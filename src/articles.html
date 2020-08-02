@@ -10,16 +10,18 @@
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css[1]%>">
 </head>
 <body class="main">
-<section class="header header_theme_white">
+  <section class="top-section_theme_white">
+<div class="header header_theme_white header_text_white">
   <p class="header__title">Epic News</p>
   <div class="header__right-side">
       <nav class="menu menu__link_theme_white">
           <a href="index.html" class="menu__link menu__link_theme_white">Главная</a>
           <a href="articles.html" class="menu__link menu__link_theme_white menu__link_theme_white-active">Сохраненные статьи</a>
       </nav>
-      <button class="header__autorization-button header__autorization-button_theme_white"><img class="header__autorization-button-icon" src="<%=require('./images/logout_black.svg').default%>" alt="logout"></button>
+      <button class="header__autorization-button header__autorization-button_theme_white"><img class="header__autorization-button-icon" src="<%=require('./images/logout.svg').default%>" alt="logout"><img class="header__autorization-button-icon_black" src="<%=require('./images/logout_black.svg').default%>" alt="logout"></button>
   </div>
-  <div class="header__mobile-menu-button"></div>
+  <img class="header__mobile-menu-button" src="<%=require('./images/menu_black.svg').default%>" alt="открыть меню">
+</div>
 </section>
 <section class="saved-top">
     <p class="saved-top__text">Сохраненные статьи</p>

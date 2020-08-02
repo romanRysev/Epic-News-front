@@ -1,3 +1,9 @@
 .header__autorization-button-icon {
     margin-left: 10px;
 }
+
+@media screen and (max-width: 639px) {
+  .header__autorization-button-icon_black {
+    display: none;
+  }
+}

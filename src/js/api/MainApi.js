@@ -45,7 +45,7 @@ export class MainApi {
       name: name,
       email: email,
       password: password,
-    }).then((res) => console.log(res));
+    });
   }
 
   signin(data) {

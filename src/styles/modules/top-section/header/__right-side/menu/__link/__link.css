@@ -50,4 +50,8 @@ display: none;
 .menu__link-active {
   border: none;
 }
+
+.menu__link_theme_white {
+  color: #fff;
+}
 }

@@ -15,6 +15,7 @@ import { NewsCardList } from "./components/NewsCardList";
   const cardList = document.querySelector(".articles__container");
   const logoutButton = document.querySelector(".header__autorization-button");
   const keywordBlock = document.querySelector(".saved-top__keywords");
+  const mobileMenuButton = document.querySelector('.header__mobile-menu-button');
 
   cardList.addEventListener("click", (event) => {
     if (event.target.classList.contains("article-card__delete")) {
@@ -167,5 +168,17 @@ import { NewsCardList } from "./components/NewsCardList";
     }).then((res) => {
       window.location.href = "index.html";
     });
+  });
+
+  mobileMenuButton.addEventListener("click", () => {
+    document
+      .querySelector(".header__right-side")
+      .classList.toggle("header__right-side_mobile-menu-is-opened");
+    document
+      .querySelector(".header")
+      .classList.toggle("header_theme_white");
+    document
+      .querySelector(".header")
+      .classList.toggle("header_mobile-menu-is-opened");
   });
 })();

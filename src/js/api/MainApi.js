@@ -28,7 +28,7 @@ export class MainApi {
         if (res.ok) {
           return res.json();
         }
-        return Promise.reject({error: res.status});
+        return Promise.reject({ error: res.status });
       })
       .catch((err) => {
         return err;
@@ -40,7 +40,7 @@ export class MainApi {
   }
 
   signup(data) {
-    const {email, password, name} = data;
+    const { email, password, name } = data;
     return this.makeFetch("signup", "POST", {
       name: name,
       email: email,
@@ -77,12 +77,10 @@ export class MainApi {
       source: source.name,
       link: url,
       image: urlToImage,
-    }).then((res) => console.log(res));
+    });
   }
 
   removeArticle(id) {
-    return this.makeFetch(`articles/${id}`, "DELETE").then((res) =>
-      console.log(res)
-    );
+    return this.makeFetch(`articles/${id}`, "DELETE");
   }
 }

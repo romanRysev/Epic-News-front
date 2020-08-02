@@ -29,17 +29,18 @@ import { Form } from "./components/Form";
     ".header__mobile-menu-button"
   );
 
-  async function a(word) {
+  async function search(word) {
     CardList.clear();
     preloader.classList.add("preloader_visible");
     await Api.getNews(word).then((res) => {
-      if (res.status == 'ok') {
+      if (res.status == "ok") {
         CardList.renderList(res, word);
         Card._renderIcon(HeaderBlock.isLoggedIn);
       } else {
-        cardListElement.textContent = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.';
-        cardListElement.classList.add('articles__container_with-error');
-        document.querySelector('.articles').classList.add('articles_visible');
+        cardListElement.textContent =
+          "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.";
+        cardListElement.classList.add("articles__container_with-error");
+        document.querySelector(".articles").classList.add("articles_visible");
       }
     });
     preloader.classList.remove("preloader_visible");
@@ -64,15 +65,17 @@ import { Form } from "./components/Form";
         event.preventDefault();
         const data = { email: email.value, password: password.value };
         BaseApi.signin(data).then((res) => {
-          if(!res.error) {
+          if (!res.error) {
             location.reload();
+          } else {
+            if (res.error == 401) {
+              document.querySelector(".signin__form-error").textContent =
+                "неверный пароль или почта";
             } else {
-              if(res.error == 401) {
-              document.querySelector('.signin__form-error').textContent = 'неверный пароль или почта';}
-              else {
-                document.querySelector('.signin__form-error').textContent = 'Ошибка на сервере. Попробуйте повторить позже.';
-              }
+              document.querySelector(".signin__form-error").textContent =
+                "Ошибка на сервере. Попробуйте повторить позже.";
             }
+          }
         });
       });
       PopupWindow.open();
@@ -103,13 +106,15 @@ import { Form } from "./components/Form";
           event.preventDefault();
           const data = { email: email.value, password: password.value };
           BaseApi.signin(data).then((res) => {
-            if(!res.error) {
-            location.reload();
+            if (!res.error) {
+              location.reload();
             } else {
-              if(res.error == 401) {
-              document.querySelector('.signin__form-error').textContent = 'неверный пароль или почта';}
-              else {
-                document.querySelector('.signin__form-error').textContent = 'Ошибка на сервере. Попробуйте повторить позже.';
+              if (res.error == 401) {
+                document.querySelector(".signin__form-error").textContent =
+                  "неверный пароль или почта";
+              } else {
+                document.querySelector(".signin__form-error").textContent =
+                  "Ошибка на сервере. Попробуйте повторить позже.";
               }
             }
           });
@@ -143,23 +148,43 @@ import { Form } from "./components/Form";
 
   searchFormElement.addEventListener("submit", (event) => {
     event.preventDefault();
-    a(searchFormInput.value);
+    search(searchFormInput.value);
     searchForm._clear;
   });
 
-  cardListElement.addEventListener("click", (event) => {
+  cardListElement.addEventListener("click", function addArticle(event) {
     if (event.target.classList.contains("article-card__add-to-collection")) {
       if (HeaderBlock.isLoggedIn) {
-        BaseApi.createArticle(
-          CardList.articles.find(
+        if (
+          !event.target.classList.contains(
+            "article-card__add-to-collection_enabled"
+          )
+        ) {
+          const ActiveArticleIndex = CardList.articles.findIndex(
             (item) =>
               item.title ==
               event.target.parentElement.parentElement.querySelector(
                 ".article-card__title"
               ).textContent
-          ),
-          CardList.keyword
-        ).then(Card.renderIcon(HeaderBlock.isLoggedIn, event.target));
+          );
+          BaseApi.createArticle(
+            CardList.articles[ActiveArticleIndex],
+            CardList.keyword
+          ).then((res) => {
+            CardList.articles[ActiveArticleIndex]._id = res.data._id;
+            Card.renderIcon(HeaderBlock.isLoggedIn, event.target);
+          });
+        } else {
+          BaseApi.removeArticle(
+            CardList.articles.find(
+              (item) =>
+                item.title ==
+                event.target.parentElement.parentElement.querySelector(
+                  ".article-card__title"
+                ).textContent
+            )._id
+          ).then(Card.renderIcon(HeaderBlock.isLoggedIn, event.target));
+        }
       } else {
         Card.renderIcon(HeaderBlock.isLoggedIn, event.target);
       }

@@ -6,4 +6,9 @@
     color: #1A1B22;
     max-width: 1232px;
     margin: 0 auto 64px;
+    display: none;
+}
+
+.articles__title_visible {
+display: block;
 }

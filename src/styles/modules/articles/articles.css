@@ -8,6 +8,11 @@
     padding: 80px 104px;
     background: #F5F6F7;
     margin: 0 auto;
+    display: none;
+}
+
+.articles_visible {
+  display: block;
 }
 
 @media screen and (max-width: 1024px) {

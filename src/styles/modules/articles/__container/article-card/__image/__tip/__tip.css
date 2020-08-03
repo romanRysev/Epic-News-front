@@ -12,6 +12,15 @@
   right: 69px;
   margin: 0;
   max-height: 40px;
+  display: none;
+}
+
+.article-card__add-to-collection:hover + .article-card__tip_showed {
+  display: block;
+}
+
+.article-card__delete:hover + .article-card__tip_showed {
+  display: block;
 }
 
 @media screen and (max-width: 1024px) {

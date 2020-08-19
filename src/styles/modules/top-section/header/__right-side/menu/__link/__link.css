@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+.menu__link_invisible {
+display: none;
+}
+
 .menu__link:hover {
   cursor: url('../../../../../../../images/Pointer.svg'), pointer;
 }
@@ -45,5 +49,9 @@
 
 .menu__link-active {
   border: none;
+}
+
+.menu__link_theme_white {
+  color: #fff;
 }
 }

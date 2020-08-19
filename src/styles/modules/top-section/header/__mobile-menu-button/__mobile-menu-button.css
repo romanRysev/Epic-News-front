@@ -7,7 +7,6 @@
 
 .header__mobile-menu-button {
   display: block;
-  background-image:url('../../../../../images/menu.svg');
   width: 24px;
   height: 24px;
 }

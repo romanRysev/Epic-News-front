@@ -12,7 +12,6 @@ export class NewsCardList {
   renderList(data, keyword) {
     document.querySelector(".articles").classList.add("articles_visible");
     if (data.articles) {
-//      this.clear();
       if (data.articles.length == 0) {
         document
           .querySelector(".articles__title")
@@ -29,14 +28,8 @@ export class NewsCardList {
         for (const elem of this.articles) {
           this.addCard(elem);
         }
-        /*
-        for (let i = 0; i < 3; i++) {
-          if (this.element.children[i]) {
-            this.element.children[i].classList.add("article-card_visible");
-          }
-        }*/
+
         this.showMore();
-        //        this.moreButton.classList.add("articles__more-button_visible");
       }
     } else {
       this.articles = data.data;

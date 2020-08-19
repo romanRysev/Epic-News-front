@@ -54,4 +54,8 @@ display: none;
 .menu__link_theme_white {
   color: #fff;
 }
+
+.menu__link_theme_white-active {
+  border-bottom: none;
+}
 }

@@ -2,8 +2,16 @@
     margin-left: 10px;
 }
 
+.header__autorization-button-icon_page_articles {
+  display: none;
+}
+
 @media screen and (max-width: 639px) {
   .header__autorization-button-icon_black {
     display: none;
+  }
+
+  .header__autorization-button-icon_page_articles {
+    display: block;
   }
 }

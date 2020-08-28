@@ -1,3 +1,5 @@
+import { ELEMENTS_PER_LINE } from "../constants/constants";
+
 export class NewsCardList {
   constructor(cardInstance) {
     this.element = document.querySelector(".articles__container");
@@ -61,7 +63,7 @@ export class NewsCardList {
 
   showMore() {
     this.moreButton.classList.add("articles__more-button_visible");
-    for (let i = this.elemsPerPage; i < this.elemsPerPage + 3; i++) {
+    for (let i = this.elemsPerPage; i < this.elemsPerPage + ELEMENTS_PER_LINE; i++) {
       if (i < this.element.children.length) {
         this.element.children[i].classList.add("article-card_visible");
         if (i == this.element.children.length - 1) {
@@ -71,6 +73,6 @@ export class NewsCardList {
         this.moreButton.classList.remove("articles__more-button_visible");
       }
     }
-    this.elemsPerPage += 3;
+    this.elemsPerPage += ELEMENTS_PER_LINE;
   }
 }

@@ -28,6 +28,7 @@ import { Form } from "./components/Form";
     ".header__mobile-menu-button"
   );
 
+  // functions
   async function search(word) {
     CardList.clear();
     preloader.classList.add("preloader_visible");
@@ -45,38 +46,54 @@ import { Form } from "./components/Form";
     preloader.classList.remove("preloader_visible");
   }
 
-  BaseApi.getMe().then((res) => {
-    HeaderBlock.render(res, "main");
-  });
+  function submitSigninFormHandler(event) {
+    const data = {
+      email: event.target.elements.email.value,
+      password: event.target.elements.password.value,
+    };
+    event.preventDefault();
+    BaseApi.signin(data).then((res) => {
+      if (!res.error) {
+        location.reload();
+      } else {
+        if (res.error == 401) {
+          document.querySelector(".signin__form-error").textContent =
+            "неверный пароль или почта";
+        } else {
+          document.querySelector(".signin__form-error").textContent =
+            "Ошибка на сервере. Попробуйте повторить позже.";
+        }
+      }
+    });
+  }
 
-  moreButton.addEventListener("click", () => {
-    CardList.showMore();
-  });
+  function submitSignupFormHandler(event) {
+    event.preventDefault();
+    const data = {
+      email: event.target.elements.email.value,
+      password: event.target.elements.password.value,
+      name: event.target.elements.name.value,
+    };
+    BaseApi.signup(data).then((res) => {
+      if (res.data) {
+        PopupWindow.clearContent();
+        PopupWindow.setContent({ contentType: "signup-successful" });
+      } else {
+        document.querySelector(".signup__form-error").textContent =
+          "Ошибка регистрации";
+      }
+    });
+  }
 
-  authButton.addEventListener("click", () => {
+  function authButtonClickHandler(event) {
     PopupWindow.clearContent();
     if (!HeaderBlock.isLoggedIn) {
       PopupWindow.setContent({ contentType: "signin" });
       const signinFormElement = document.forms.signin;
-      const email = signinFormElement.elements.email;
-      const password = signinFormElement.elements.password;
-      signinFormElement.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const data = { email: email.value, password: password.value };
-        BaseApi.signin(data).then((res) => {
-          if (!res.error) {
-            location.reload();
-          } else {
-            if (res.error == 401) {
-              document.querySelector(".signin__form-error").textContent =
-                "неверный пароль или почта";
-            } else {
-              document.querySelector(".signin__form-error").textContent =
-                "Ошибка на сервере. Попробуйте повторить позже.";
-            }
-          }
-        });
-      });
+      signinFormElement.addEventListener(
+        "submit",
+        submitSigninFormHandler.bind(event)
+      );
       PopupWindow.open();
     }
     if (HeaderBlock.isLoggedIn) {
@@ -88,10 +105,18 @@ import { Form } from "./components/Form";
         location.reload();
       });
     }
+  }
+
+  //event listeners
+  moreButton.addEventListener("click", () => {
+    CardList.showMore();
   });
+
+  authButton.addEventListener("click", authButtonClickHandler.bind(event));
 
   popupBlock.addEventListener("click", (event) => {
     if (event.target.classList.contains("popup__switch-color-text")) {
+      // Логика переключателя форм в попапе - если сейчас форма signup или signup-successful - очисти попап, нарируй signin и повесь на него обработчик. В обратную сторону - аналогично.
       if (
         PopupWindow.content == "signup" ||
         PopupWindow.content == "signup-successful"
@@ -99,47 +124,18 @@ import { Form } from "./components/Form";
         PopupWindow.clearContent();
         PopupWindow.setContent({ contentType: "signin" });
         const signinFormElement = document.forms.signin;
-        const email = signinFormElement.elements.email;
-        const password = signinFormElement.elements.password;
-        signinFormElement.addEventListener("submit", (event) => {
-          event.preventDefault();
-          const data = { email: email.value, password: password.value };
-          BaseApi.signin(data).then((res) => {
-            if (!res.error) {
-              location.reload();
-            } else {
-              if (res.error == 401) {
-                document.querySelector(".signin__form-error").textContent =
-                  "неверный пароль или почта";
-              } else {
-                document.querySelector(".signin__form-error").textContent =
-                  "Ошибка на сервере. Попробуйте повторить позже.";
-              }
-            }
-          });
-        });
+        signinFormElement.addEventListener(
+          "submit",
+          submitSigninFormHandler.bind(event)
+        );
       } else {
         PopupWindow.clearContent();
         PopupWindow.setContent({ contentType: "signup" });
         const signupFormElement = document.forms.signup;
-        const email = signupFormElement.elements.email;
-        const password = signupFormElement.elements.password;
-        const name = signupFormElement.elements.name;
-        signupFormElement.addEventListener("submit", (event) => {
-          event.preventDefault();
-          const data = {
-            email: email.value,
-            password: password.value,
-            name: name.value,
-          };
-          BaseApi.signup(data).then((res) => { if(res.data) {
-            PopupWindow.clearContent();
-            PopupWindow.setContent({ contentType: "signup-successful" });
-          } else {
-            document.querySelector('.signup__form-error').textContent='Ошибка регистрации';
-          }
-          });
-        });
+        signupFormElement.addEventListener(
+          "submit",
+          submitSignupFormHandler.bind(event)
+        );
       }
     }
   });
@@ -211,5 +207,11 @@ import { Form } from "./components/Form";
     document
       .querySelector(".header")
       .classList.toggle("header_mobile-menu-is-opened");
+  });
+
+  //functions call
+
+  BaseApi.getMe().then((res) => {
+    HeaderBlock.render(res, "main");
   });
 })();

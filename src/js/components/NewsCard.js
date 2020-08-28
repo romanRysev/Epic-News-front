@@ -65,16 +65,12 @@ export class NewsCard {
   renderIcon(isLoggedIn, iconElement) {
     if (isLoggedIn) {
       iconElement.classList.toggle("article-card__add-to-collection_enabled");
-    } else {
-      //iconElement.parentNode.querySelector(".article-card__tip").textContent = "Войдите, чтобы сохранять статьи";
-      //iconElement.parentNode.querySelector(".article-card__tip").classList.add('article-card__tip_showed');
     }
   }
 
   _renderIcon(isLoggedIn) {
     if (!isLoggedIn) {
       document.querySelectorAll(".article-card__tip").forEach(elem => {elem.classList.add('article-card__tip_showed')});
-      //document.querySelectorAll(".article-card__tip").classList.add('article-card__tip_showed');
     }
   }
 }

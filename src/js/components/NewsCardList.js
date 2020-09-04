@@ -1,3 +1,5 @@
+import { ELEMENTS_PER_LINE } from "../constants/constants";
+
 export class NewsCardList {
   constructor(cardInstance) {
     this.element = document.querySelector(".articles__container");
@@ -12,7 +14,6 @@ export class NewsCardList {
   renderList(data, keyword) {
     document.querySelector(".articles").classList.add("articles_visible");
     if (data.articles) {
-//      this.clear();
       if (data.articles.length == 0) {
         document
           .querySelector(".articles__title")
@@ -29,14 +30,8 @@ export class NewsCardList {
         for (const elem of this.articles) {
           this.addCard(elem);
         }
-        /*
-        for (let i = 0; i < 3; i++) {
-          if (this.element.children[i]) {
-            this.element.children[i].classList.add("article-card_visible");
-          }
-        }*/
+
         this.showMore();
-        //        this.moreButton.classList.add("articles__more-button_visible");
       }
     } else {
       this.articles = data.data;
@@ -68,7 +63,7 @@ export class NewsCardList {
 
   showMore() {
     this.moreButton.classList.add("articles__more-button_visible");
-    for (let i = this.elemsPerPage; i < this.elemsPerPage + 3; i++) {
+    for (let i = this.elemsPerPage; i < this.elemsPerPage + ELEMENTS_PER_LINE; i++) {
       if (i < this.element.children.length) {
         this.element.children[i].classList.add("article-card_visible");
         if (i == this.element.children.length - 1) {
@@ -78,6 +73,6 @@ export class NewsCardList {
         this.moreButton.classList.remove("articles__more-button_visible");
       }
     }
-    this.elemsPerPage += 3;
+    this.elemsPerPage += ELEMENTS_PER_LINE;
   }
 }

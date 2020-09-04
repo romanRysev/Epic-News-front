@@ -1,8 +1,4 @@
 export class Form {
-  constructor() {
-
-  }
-
   checkInputValidity(event, errorElement) {
     const form = event.target.parentElement;
     if (!form.checkValidity()) {
@@ -14,11 +10,7 @@ export class Form {
         errorElement.textContent = 'Неверная длинна'
         return false;
       }
-      if (event.target.validity.typeMismatch) {
-        errorElement.textContent = 'Здесь должна быть почта'
-        return false;
-      }
-      if(event.target.validity.patternMismatch) {
+      if(event.target.validity.patternMismatch || event.target.validity.typeMismatch) {
         errorElement.textContent = 'Введите в правильном формате'
         return false;
       }
@@ -38,9 +30,5 @@ export class Form {
       button.classList.add('button_disabled');
       button.setAttribute('disabled', true);
     }
-  }
-
-  _clear() {
-
   }
 }

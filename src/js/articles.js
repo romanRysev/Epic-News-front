@@ -15,7 +15,33 @@ import { NewsCardList } from "./components/NewsCardList";
   const cardList = document.querySelector(".articles__container");
   const logoutButton = document.querySelector(".header__autorization-button");
   const keywordBlock = document.querySelector(".saved-top__keywords");
-  const mobileMenuButton = document.querySelector('.header__mobile-menu-button');
+  const mobileMenuButton = document.querySelector(
+    ".header__mobile-menu-button"
+  );
+
+  function keywordsCounter(res) {
+    const keywords = res.data.map((item) => {
+      return { keyword: item.keyword };
+    });
+
+    const keywordsRes = [];
+    keywords.forEach((element) => {
+      let i = keywordsRes.findIndex((item) => {
+        return item.keyword == element.keyword;
+      });
+
+      if (i == -1) {
+        const res = {};
+        res.keyword = element.keyword;
+        res.counter = 1;
+        keywordsRes.push(res);
+        return;
+      } else {
+        keywordsRes[i].counter++;
+      }
+    });
+    return keywordsRes;
+  }
 
   cardList.addEventListener("click", (event) => {
     if (event.target.classList.contains("article-card__delete")) {
@@ -47,33 +73,14 @@ import { NewsCardList } from "./components/NewsCardList";
           userName.textContent = HeaderBlock.userName;
           articlesCounter.textContent = res.data.length;
           //-------------- слова
-          const keywords = res.data.map((item) => {
-            return { keyword: item.keyword };
-          });
-
-          const keywordsRes = [];
-          keywords.forEach((element) => {
-            let i = keywordsRes.findIndex((item) => {
-              return item.keyword == element.keyword;
-            });
-
-            if (i == -1) {
-              let res = {};
-              res.keyword = element.keyword;
-              res.counter = 1;
-              keywordsRes.push(res);
-              return;
-            } else {
-              keywordsRes[i].counter++;
-            }
-          });
-
+          const keywordsRes = keywordsCounter(res);
           const keywordElements = document.querySelectorAll(
             ".saved-top__keyword"
           );
           const keywordOthersElement = document.querySelector(
             ".saved-top__keyword-others"
           );
+
 
           if (keywordsRes.length > 3) {
             let maxElemFirst = { counter: 0, keyword: "" };
@@ -174,9 +181,7 @@ import { NewsCardList } from "./components/NewsCardList";
     document
       .querySelector(".header__right-side")
       .classList.toggle("header__right-side_mobile-menu-is-opened");
-    document
-      .querySelector(".header")
-      .classList.toggle("header_theme_white");
+    document.querySelector(".header").classList.toggle("header_theme_white");
     document
       .querySelector(".header")
       .classList.toggle("header_mobile-menu-is-opened");

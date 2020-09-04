@@ -28,13 +28,13 @@ export class Header {
         const buttonIconWhite = document.createElement("img");
         buttonIconWhite.setAttribute("src", `./images/logout.svg`);
         buttonIconWhite.setAttribute("alt", "logout");
-        buttonIconWhite.classList.add("header__autorization-button-icon");
+        buttonIconWhite.classList.add("header__autorization-button-icon_page_articles");
         button.append(buttonIcon);
         button.append(buttonIconWhite);
       }
     } else {
       button.textContent = "Авторизоваться";
-      this.menuLink.classList.add('menu__link_invisible')
+      this.menuLink.classList.add("menu__link_invisible");
     }
   }
 }

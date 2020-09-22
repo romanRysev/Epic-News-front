@@ -18,6 +18,7 @@ import { Form } from "./components/Form";
   const signinForm = new Form();
   const authButton = document.querySelector(".header__autorization-button");
   const popupCloseButton = document.querySelector(".popup__close");
+  const popupWrapper = document.querySelector(".popup__wrapper");
   const preloader = document.querySelector(".preloader");
   const moreButton = document.querySelector(".articles__more-button");
   const searchFormInput = document.querySelector(".search-form__input");
@@ -141,6 +142,10 @@ import { Form } from "./components/Form";
   });
 
   popupCloseButton.addEventListener("click", () => {
+    PopupWindow.close();
+  });
+
+  popupWrapper.addEventListener("click", () => {
     PopupWindow.close();
   });
 
